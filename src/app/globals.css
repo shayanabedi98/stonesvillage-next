@@ -9,27 +9,9 @@
   --bg-color-dark: rgb(32, 32, 32);
   --accent-color: #e6c753;
   --font-primary: "Poppins", sans-serif;
-  --m-div: 128px;
+  --m-div: 180px;
   --m-content: 75px;
 }
-
-/* @keyframes gradient {
-  0% {
-    background-color: rgb(32, 32, 32);
-  }
-  25% {
-    background-color: rgb(29, 29, 29);
-  }
-  50% {
-    background-color: rgb(24, 24, 24);
-  }
-  75% {
-    background-color: rgb(27, 27, 27);
-  }
-  100% {
-    background-color: rgb(32, 32, 32);
-  }
-} */
 
 *, *::after, *::before {
   box-sizing: border-box;
@@ -41,5 +23,4 @@
 body {
   background-color: var(--bg-color-dark);
   color: var(--bg-color-light);
-  /* animation: gradient 10s ease-in-out infinite; */
 }

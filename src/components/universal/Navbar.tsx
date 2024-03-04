@@ -6,7 +6,7 @@ import { MdMailOutline } from "react-icons/md";
 
 export default function Navbar() {
   return (
-    <div className="flex justify-between px-24 py-4 fixed top-0 left-0 right-0 w-full bg-[rgba(32,32,32,0.85)] h-24 shadow-md">
+    <div className="flex justify-between px-24 py-4 fixed top-0 left-0 right-0 w-full bg-[rgba(20,20,20,0.85)] h-24 shadow-md z-[1]">
       <div className="flex items-center w-1/3">
         <Link className="flex items-center gap-2" href="/">
           <Image
