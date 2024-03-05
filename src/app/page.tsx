@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="">
+    <main className="">
       <Hero />
       <div className="px-44 flex flex-col items-center">
         <OurServices />
@@ -15,6 +15,6 @@ export default function Home() {
         <Discoverbeauty />
         <Reviews />
       </div>
-    </div>
+    </main>
   );
 }

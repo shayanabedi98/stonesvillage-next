@@ -13,7 +13,7 @@ export default function Footer() {
         <FooterItems location="/" content="Home" />
         <FooterItems location="/inventory" content="Inventory" />
         <FooterItems location="/gallery" content="Gallery" />
-        <FooterItems location="/about" content="About" />
+        <FooterItems location="/about" content="About Us" />
         <FooterItems location="/contact" content="Contact" />
       </div>
       <div className="flex justify-center text-xs gap-6">

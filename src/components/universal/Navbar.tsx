@@ -27,7 +27,7 @@ export default function Navbar() {
           />
         </Link>
       </div>
-      <div className="flex items-center gap-7 w-1/3 justify-center">
+      <div className="flex items-center gap-1 w-1/3 justify-center">
         <NavbarItems location="/" content="Home" />
         <NavbarItems location="/inventory" content="Inventory" />
         <NavbarItems location="/gallery" content="Gallery" />
