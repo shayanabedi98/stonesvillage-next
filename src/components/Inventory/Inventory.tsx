@@ -1,12 +1,31 @@
 "use client";
 
+import { inventoryList } from "./inventoryList";
 import Image from "next/image";
-import InventoryMapper from "./InventoryMapper";
 import { useState } from "react";
+import Onyx from "./Onyx";
+import Porcelain from "./Porcelain";
+import Marble from "./Marble";
+import Filter from "./Filter";
 
 export default function Inventory() {
   const [bigMode, setBigMode] = useState(false);
   const [img, setImg] = useState("");
+  const [filter, setFilter] = useState({
+    all: true,
+    onyx: false,
+    porcelain: false,
+    marble: false,
+  });
+
+  const handleFilter = (clicked: string) => {
+    setFilter({
+      all: clicked == "all",
+      onyx: clicked == "onyx",
+      porcelain: clicked == "porcelain",
+      marble: clicked == "marble",
+    });
+  };
 
   const handleClickItem = (img: string) => {
     setBigMode(true);
@@ -14,7 +33,7 @@ export default function Inventory() {
   };
 
   return (
-    <div>
+    <div className="mb-div">
       {bigMode && (
         <div
           onClick={() => {
@@ -28,48 +47,58 @@ export default function Inventory() {
             alt=""
             width={1000}
             height={1000}
-            className="w-[800px] rounded-lg"
+            className="max-w-[800px] max-h-[90%] rounded-lg"
           />
         </div>
       )}
-      <div className="flex flex-col gap-10 mt-div ">
-        <h2 className="text-3xl text-center font-semibold">Onyx</h2>
-        <InventoryMapper
-          handleClickItem={handleClickItem}
-          num={0}
-          stone={"onyx"}
-          color={"brown"}
-          position="-30px -90px"
+      <div className="flex justify-center gap-10 mt-div">
+        <Filter
+          content="All"
+          value="all"
+          handleFilter={handleFilter}
+          condition={filter.all}
         />
-        <InventoryMapper
-          handleClickItem={handleClickItem}
-          num={0}
-          stone={"onyx"}
-          color={"green"}
-          position="-60px -90px"
+        <Filter
+          content="Onyx"
+          value="onyx"
+          handleFilter={handleFilter}
+          condition={filter.onyx}
         />
-        <InventoryMapper
-          handleClickItem={handleClickItem}
-          num={0}
-          stone={"onyx"}
-          color={"red"}
-          position="-60px -90px"
+        <Filter
+          content="Porcelain"
+          value="porcelain"
+          handleFilter={handleFilter}
+          condition={filter.porcelain}
         />
-        <InventoryMapper
-          handleClickItem={handleClickItem}
-          num={0}
-          stone={"onyx"}
-          color={"white"}
-          position="-60px -90px"
-        />
-        <InventoryMapper
-          handleClickItem={handleClickItem}
-          num={0}
-          stone={"onyx"}
-          color={"other"}
-          position="-60px -90px"
+        <Filter
+          content="Marble"
+          value="marble"
+          handleFilter={handleFilter}
+          condition={filter.marble}
         />
       </div>
+      {/* <Filter content="Quartz" value="quartz" handleFilter={handleFilter} /> */}
+      {(filter.onyx || filter.all) && (
+        <Onyx
+          handleClickItem={handleClickItem}
+          inventoryList={inventoryList}
+          position="-60px -90px"
+        />
+      )}
+      {(filter.porcelain || filter.all) && (
+        <Porcelain
+          handleClickItem={handleClickItem}
+          inventoryList={inventoryList}
+          position="-85px -90px"
+        />
+      )}
+      {(filter.marble || filter.all) && (
+        <Marble
+          handleClickItem={handleClickItem}
+          inventoryList={inventoryList}
+          position="-90px -120px"
+        />
+      )}
     </div>
   );
 }
