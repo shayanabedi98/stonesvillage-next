@@ -42,7 +42,7 @@ export default function Hero() {
         <h2 className="text-5xl">Elevate Your Space with Stones Village</h2>
         <Link
           href="/inventory"
-          className="bg-none border-8 border-accent-color hover:bg-accent-color transition duration-200 ease-in-out py-5 px-8 text-xl rounded-md shadow-xl"
+          className="bg-accent-color hover:bg-bg-color-dark transition duration-200 ease-in-out py-5 px-8 text-xl rounded-md shadow-xl"
         >
           <button>View Inventory</button>
         </Link>

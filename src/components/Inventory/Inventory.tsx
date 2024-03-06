@@ -7,6 +7,7 @@ import Onyx from "./Onyx";
 import Porcelain from "./Porcelain";
 import Marble from "./Marble";
 import Filter from "./Filter";
+import BackUp from "./BackUp";
 
 export default function Inventory() {
   const [bigMode, setBigMode] = useState(false);
@@ -77,6 +78,16 @@ export default function Inventory() {
           condition={filter.marble}
         />
       </div>
+      <p className="text-center mt-content text-2xl">
+        Showing{" "}
+        <span className="font-bold">
+          {filter.all && "all"}
+          {filter.onyx && "Onyx"}
+          {filter.porcelain && "Porcelain"}
+          {filter.marble && "Marble"}
+        </span>{" "}
+        stone slabs currently in stock.
+      </p>
       {/* <Filter content="Quartz" value="quartz" handleFilter={handleFilter} /> */}
       {(filter.onyx || filter.all) && (
         <Onyx
@@ -99,6 +110,7 @@ export default function Inventory() {
           position="-90px -120px"
         />
       )}
+      <BackUp />
     </div>
   );
 }

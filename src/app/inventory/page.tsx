@@ -1,10 +1,9 @@
 import Hero from "@/components/universal/Hero";
 import Inventory from "@/components/Inventory/Inventory";
-import Image from "next/image";
 
 export default function InventoryPage() {
   return (
-    <main className="bg-bg-color-light ">
+    <main className="bg-bg-color-light">
       <Hero content="Inventory" />
       <div className="px-44 flex flex-col items-center text-bg-color-dark mt-content">
         <div className="flex justify-center items-center gap-10 leading-loose">
