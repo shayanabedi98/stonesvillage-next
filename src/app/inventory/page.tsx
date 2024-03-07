@@ -26,7 +26,7 @@ export default function InventoryPage() {
           <div
             className="h-96 w-96 shadow-md"
             style={{
-              backgroundImage: "url(/assets/inventory/onyx/other/svo-24.webp)",
+              backgroundImage: "url(/assets/other/inventory.webp)",
               backgroundSize: "700px",
               backgroundPosition: "-40px -90px"
             }}
