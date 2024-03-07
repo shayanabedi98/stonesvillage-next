@@ -41,7 +41,7 @@ export default function Discoverbeauty() {
         <div className="flex flex-col justify-center items-center w-1/2 px-20 leading-loose gap-10">
           <p>
             Stones Village invites you to our Instagram page, where a portfolio
-            of diverse and transformative projects awaits. Over here, you'll
+            of diverse and transformative projects awaits. Over here, you&apos;ll
             find a showcase of our commitment to excellence in stone
             craftsmanship. Follow us for a steady stream of inspiration,
             updates, and a glimpse into the artistry that defines every project.

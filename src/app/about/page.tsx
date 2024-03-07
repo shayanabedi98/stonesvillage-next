@@ -37,7 +37,7 @@ export default function AboutUs() {
               quality, Stones Village is dedicated to fostering enduring
               relationships with architects, designers, contractors, and
               homeowners alike, ensuring each project we undertake is not only a
-              testament to our craft but also a reflection of our clients'
+              testament to our craft but also a reflection of our clients&apos;
               visions brought to life with precision and elegance.
             </p>
           </div>
@@ -58,7 +58,7 @@ export default function AboutUs() {
             </h2>
             <p className="">
               Founded by Ahmad Abedi, Stones Village is not just about providing
-              stone services; it's a mission to transform everyday spaces into
+              stone services; it&apos;s a mission to transform everyday spaces into
               extraordinary art pieces. His passion for excellence, attention to
               the finest details, and unwavering commitment to customer
               satisfaction have been the guiding principles of our journey,

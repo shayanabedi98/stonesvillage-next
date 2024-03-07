@@ -29,8 +29,8 @@ export default function Gallery() {
               with our latest work, it reflects the evolution of our
               craftsmanship and the diversity of our materials. From the elegant
               allure of marble to the unique charm of onyx, each piece promises
-              a glimpse into the potential of your space. And this is just the
-              beginning – there's always more to come, ensuring our gallery
+              a glimpse into the potential of your space, and this is just the
+              beginning there&apos;s always more to come, ensuring our gallery
               remains a beacon of inspiration and innovation.
             </p>
           </div>
