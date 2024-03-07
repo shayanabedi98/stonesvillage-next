@@ -24,3 +24,7 @@ body {
   background-color: var(--bg-color-dark);
   color: var(--bg-color-light);
 }
+
+textarea {
+  resize: none;
+}

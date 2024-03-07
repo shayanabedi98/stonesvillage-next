@@ -31,6 +31,15 @@ export default function AboutUs() {
               2017. Today, we are delighted to offer our exceptional services to
               clients across the entire country.
             </p>
+            <br />
+            <p>
+              Building on our rich legacy and commitment to unparalleled
+              quality, Stones Village is dedicated to fostering enduring
+              relationships with architects, designers, contractors, and
+              homeowners alike, ensuring each project we undertake is not only a
+              testament to our craft but also a reflection of our clients'
+              visions brought to life with precision and elegance.
+            </p>
           </div>
           <div
             className="h-[500px] w-[500px] shadow-md rounded-md"
