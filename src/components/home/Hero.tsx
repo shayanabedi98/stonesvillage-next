@@ -29,7 +29,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.5 }}
+          transition={{ duration: 0.7 }}
           className="absolute inset-0 h-full w-full z-[-1]"
           style={{
             backgroundImage: `url(${bgArr[bgIndex]})`,
