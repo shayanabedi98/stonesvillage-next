@@ -6,10 +6,10 @@ import Link from "next/link";
 
 export default function Hero() {
   const bgArr = [
-    "/assets/other/homebg1.jpg",
-    "/assets/other/homebg2.jpg",
-    "/assets/other/homebg3.jpg",
-    "/assets/other/homebg4.jpg",
+    "/assets/other/homebg1.webp",
+    "/assets/other/homebg2.webp",
+    "/assets/other/homebg3.webp",
+    "/assets/other/homebg4.webp",
   ];
 
   const [bgIndex, setBgIndex] = useState(0);
@@ -19,7 +19,7 @@ export default function Hero() {
       setBgIndex((prevIndex) => (prevIndex + 1) % bgArr.length);
     }, 9000);
     return () => clearInterval(interval);
-  }, []);
+  }, [bgArr.length]);
 
   return (
     <div className="h-screen overflow-hidden shadow-2xl">

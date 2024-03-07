@@ -44,7 +44,7 @@ export default function AboutUs() {
           <div
             className="h-[500px] w-[500px] shadow-md rounded-md"
             style={{
-              backgroundImage: "url(/assets/inventory/onyx/red/svo-28.jpg)",
+              backgroundImage: "url(/assets/inventory/onyx/red/svo-28.webp)",
               backgroundSize: "1200px",
               backgroundPosition: "-350px -110px",
             }}

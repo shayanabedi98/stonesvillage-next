@@ -7,7 +7,7 @@ export default function Hero({ content }: { content: string }) {
         <Image
           priority
           className="w-full h-full object-cover"
-          src="/assets/other/herobg.jpg"
+          src="/assets/other/herobg.webp"
           alt=""
           height={700}
           width={1300}
