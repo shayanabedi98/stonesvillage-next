@@ -1,10 +1,10 @@
-import Hero from "@/components/universal/Hero";
+// import Hero from "@/components/universal/Hero";
 import Link from "next/link";
 
 export default function Sent() {
   return (
     <div className="">
-      <Hero content="Email Sent!" />
+      {/* <Hero content="Email Sent!" /> */}
       <div className="bg-bg-color-light py-60 flex flex-col gap-10 items-center justify-center text-bg-color-dark">
         <h1 className=" text-5xl text-center">Thank you for your message!</h1>
         <p className="text-2xl text-center">

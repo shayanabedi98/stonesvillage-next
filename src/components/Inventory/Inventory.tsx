@@ -46,8 +46,8 @@ export default function Inventory() {
             priority
             src={img}
             alt=""
-            width={1000}
-            height={1000}
+            width={900}
+            height={800}
             className="max-w-[800px] max-h-[90%] rounded-lg"
           />
         </div>

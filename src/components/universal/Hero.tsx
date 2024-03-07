@@ -1,10 +1,11 @@
 import Image from "next/image";
 
-export default function Hero({content}: {content: string}) {
+export default function Hero({ content }: { content: string }) {
   return (
     <div>
       <div className="h-[600px] relative">
         <Image
+          priority
           className="w-full h-full object-cover"
           src="/assets/other/herobg.jpg"
           alt=""

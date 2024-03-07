@@ -14,15 +14,15 @@ export default function Navbar() {
             priority
             src="/assets/other/sv-cube.png"
             alt=""
-            height={200}
-            width={200}
+            height={50}
+            width={50}
           />
           <Image
             className="w-[230px] h-full"
             priority
             src="/assets/other/sv-name.png"
             alt=""
-            height={200}
+            height={25}
             width={200}
           />
         </Link>
