@@ -13,10 +13,19 @@ export default function Hero() {
   ];
 
   const [bgIndex, setBgIndex] = useState(0);
+  // State to manage the opacity
+  const [opacity, setOpacity] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setBgIndex((prevIndex) => (prevIndex + 1) % bgArr.length);
+      // Start fading out the image before changing it
+      setOpacity(0);
+      // Use a timeout to change the image after it has faded out
+      setTimeout(() => {
+        setBgIndex((prevIndex) => (prevIndex + 1) % bgArr.length);
+        // Fade in the new image
+        setOpacity(1);
+      }, 1500); // Adjust this value to match your fade transition duration
     }, 9000);
     return () => clearInterval(interval);
   }, [bgArr.length]);
@@ -27,9 +36,8 @@ export default function Hero() {
         <motion.div
           key={bgIndex}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.7 }}
+          animate={{ opacity: opacity }}
+          transition={{ duration: 1.5 }}
           className="absolute inset-0 h-full w-full z-[-1]"
           style={{
             backgroundImage: `url(${bgArr[bgIndex]})`,
