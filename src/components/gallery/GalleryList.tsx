@@ -27,11 +27,18 @@ export default function GalleryList() {
   ];
 
   return (
-    <div className="bg-neutral-500 my-div w-full grid grid-cols-3 justify-items-center p-24 gap-12 ">
+    <div className="xl:bg-neutral-400 my-div w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center xl:p-10 gap-10 ">
       {gallery.map((item, index) => {
         return (
           <div key={index}>
-            <Image src={item.src} priority alt="" className="shadow-lg h-80 w-80 object-cover" width={600} height={600} />
+            <Image
+              src={item.src}
+              priority
+              alt=""
+              className="shadow-lg h-72 w-72 sm:h-80 sm:w-80 object-cover"
+              width={600}
+              height={600}
+            />
           </div>
         );
       })}

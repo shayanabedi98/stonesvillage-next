@@ -20,13 +20,16 @@ const config: Config = {
         // "": "var()",
       },
       margin: {
-        "div": "var(--m-div)",
-        "content": "var(--m-content)",
+        div: "var(--m-div)",
+        content: "var(--m-content)",
+      },
+      backgroundSize: {
+        "90": "90%",
       }
     },
   },
   plugins: [
-    require('tailwind-scrollbar')({ preferredStrategy: 'pseudoelements' })
+    require("tailwind-scrollbar")({ preferredStrategy: "pseudoelements" }),
   ],
 };
 export default config;

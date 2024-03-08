@@ -63,7 +63,7 @@ export default function ContactForm() {
           name="name"
           placeholder="Name"
           required
-          className="w-[400px] py-2 px-4 shadow-xl"
+          className="w-72 sm:w-[400px] py-2 px-4 shadow-xl"
         />
         <input
           type="tel"
@@ -71,25 +71,25 @@ export default function ContactForm() {
           name="number"
           placeholder="Phone Number"
           required
-          className="w-[400px] py-2 px-4 shadow-xl"
+          className="w-72 sm:w-[400px] py-2 px-4 shadow-xl"
         />
         <input
           type="email"
           name="email"
           placeholder="Email"
           required
-          className="w-[400px] py-2 px-4 shadow-xl"
+          className="w-72 sm:w-[400px] py-2 px-4 shadow-xl"
         />
         <textarea
           name="message"
           placeholder="Message"
           required
-          className="w-[400px] text-bg-color-dark h-[200px] py-2 px-4 shadow-xl"
+          className="w-72 sm:w-[400px] text-bg-color-dark h-[200px] py-2 px-4 shadow-xl"
         ></textarea>
       </div>
       <button
         type="submit"
-        className="mt-6 bg-accent-color text-bg-color-dark w-[400px] py-2 px-10 shadow-xl"
+        className="mt-6 bg-accent-color text-bg-color-dark w-72 sm:w-[400px] py-2 px-10 shadow-xl"
       >
         {sending ? "Sending..." : "Send"}
       </button>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   const bgArr = [
@@ -31,26 +32,32 @@ export default function Hero() {
   }, [bgArr.length]);
 
   return (
-    <div className="h-screen overflow-hidden shadow-2xl">
+    <div className=" overflow-hidden h-[720px] sm:h-[900px] 2xl:h-[980px] shadow-2xl">
       <AnimatePresence>
         <motion.div
           key={bgIndex}
           initial={{ opacity: 0 }}
           animate={{ opacity: opacity }}
           transition={{ duration: 1.5 }}
-          className="absolute inset-0 h-full w-full z-[-1]"
+          className="absolute inset-0 h-[720px] sm:h-[900px] 2xl:h-[980px] w-full z-[-1] bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${bgArr[bgIndex]})`,
-            backgroundSize: "cover",
+            // backgroundSize: "cover",
           }}
-        />
+        >
+          {/* <Image priority src={bgArr[bgIndex]} layout="fill" objectFit="cover" alt="" className="transform "/> */}
+        </motion.div>
       </AnimatePresence>
-      <div className="flex flex-col items-center gap-24 justify-center text-center text-white font-semibold h-screen">
-        <h1 className="text-7xl">Supply, Design, Fabricate, Install</h1>
-        <h2 className="text-5xl">Elevate Your Space with Stones Village</h2>
+      <div className="flex flex-col items-center gap-24 justify-center text-center text-white font-semibold h-[720px] sm:h-[900px] 2xl:h-[980px]">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
+          Supply, Design, Fabricate, Install
+        </h1>
+        <h2 className="text-2xl sm:text-3xl 2xl:text-4xl">
+          Elevate Your Space with Stones Village
+        </h2>
         <Link
           href="/inventory"
-          className="bg-accent-color hover:bg-bg-color-dark transition duration-200 ease-in-out py-5 px-8 text-xl rounded-md shadow-xl"
+          className="bg-accent-color hover:bg-bg-color-dark transition duration-200 ease-in-out py-4 px-7 lg:px-8 lg:py-6 text-lg lg:text-xl rounded-md shadow-xl"
         >
           <button>View Inventory</button>
         </Link>

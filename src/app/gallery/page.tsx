@@ -1,16 +1,23 @@
 import GalleryList from "@/components/gallery/GalleryList";
 import Hero from "@/components/universal/Hero";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Stones Village | Gallery",
+  description: "Stones Village Inc. is a company that sells, supplies, fabricates, and installs stones for kitchens, bathrooms, vanity, and more. We have a wide variety of stones such as marble, onyx, quartz, and porcelain. We are located in the heart of the city of Vaughan, Ontario.",
+  keywords: "stones, marble, onyx, porcelain, quartz, kitchen, vanity, countertops, slabs, supply, fabricate, install, vaughan",
+};
 
 export default function Gallery() {
   return (
     <main className="bg-bg-color-light">
       <Hero content="Gallery" />
-      <div className="px-44 flex flex-col items-center text-bg-color-dark mt-content">
-        <div className="flex justify-center items-center gap-10 leading-loose">
+      <div className="px-6 sm:px-16 lg:px-32 xl:px-44 flex flex-col items-center text-bg-color-dark mt-content">
+        <div className="flex flex-col xl:flex-row justify-center items-center gap-10 leading-loose">
           <div>
             <Image
-              className="object-cover w-96 h-96 shadow-md"
+              className="object-cover w-72 h-72 sm:h-96 sm:w-96 shadow-md"
               priority
               src="/assets/gallery/item20.jpg"
               alt=""
@@ -18,7 +25,7 @@ export default function Gallery() {
               width={600}
             />
           </div>
-          <div className="flex flex-col w-1/2">
+          <div className="flex flex-col xl:w-1/2">
             <h2 className="text-2xl mb-content font-semibold">
               Crafting Elegance: A Dynamic Showcase of Stone Mastery
             </h2>

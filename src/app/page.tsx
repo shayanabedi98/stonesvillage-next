@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className="">
       <Hero />
-      <div className="px-44 flex flex-col items-center">
+      <div className="px-6 sm:px-16 lg:px-32 xl:px-44 flex flex-col items-center">
         <OurServices />
         <WhoAreWe />
         <Discoverbeauty />

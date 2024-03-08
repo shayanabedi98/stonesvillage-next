@@ -48,11 +48,11 @@ export default function Inventory() {
             alt=""
             width={900}
             height={800}
-            className="max-w-[800px] max-h-[90%] rounded-lg"
+            className="w-[95%] sm:max-w-[600px] xl:max-w-[900px] rounded-lg"
           />
         </div>
       )}
-      <div className="flex justify-center gap-10 mt-div">
+      <div className="grid grid-cols-2 sm:flex justify-center justify-items-center gap-10 mt-div">
         <Filter
           content="All"
           value="all"
@@ -100,7 +100,7 @@ export default function Inventory() {
         <Porcelain
           handleClickItem={handleClickItem}
           inventoryList={inventoryList}
-          position="-85px -90px"
+          position=""
         />
       )}
       {(filter.marble || filter.all) && (

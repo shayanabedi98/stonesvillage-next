@@ -36,12 +36,12 @@ export default function Reviews() {
   ];
 
   return (
-    <div className="my-div flex flex-col items-center w-[90%]">
-      <h3 className="text-3xl">Reviews</h3>
-      <div className="mt-content bg-[rgb(20,20,20)] w-full flex gap-20 p-10 overflow-x-auto  scrollbar-thin scrollbar-thumb-accent-color scrollbar-track-bg-color-dark">
+    <div className="my-div xl:px-24 flex flex-col items-center w-full">
+      <h3 className="text-3xl">Testimonials</h3>
+      <div className="mt-16 xl:mt-content bg-[rgb(20,20,20)] w-full flex gap-20 p-4 overflow-x-auto scrollbar-thin scrollbar-thumb-accent-color scrollbar-track-bg-color-dark">
         {reviews.map((item, index) => (
           <div
-            className="flex flex-col justify-between bg-neutral-800 min-w-80 p-5 gap-4 rounded-xl"
+            className="flex flex-col justify-between bg-neutral-800 min-w-60 sm:min-w-96 p-5 gap-4 rounded-xl"
             key={index}
           >
             <div className="flex text-accent-color text-2xl gap-2">
@@ -51,12 +51,12 @@ export default function Reviews() {
               <FaRegStar />
               <FaRegStar />
             </div>
-            <h5 className="text-sm">{item.review}</h5>
+            <h5 className="text-xs sm:text-sm leading-5 sm:leading-6">{item.review}</h5>
             <p className="text-sm">- {item.name}</p>
           </div>
         ))}
       </div>
-      <div className="flex flex-col items-center mt-10 gap-10">
+      <div className="flex flex-col text-center items-center mt-16 xl:mt-content gap-10">
         <h4>
           At Stones Village, we value your feedback. Click to leave a review or
           to see more
@@ -64,7 +64,7 @@ export default function Reviews() {
         <Link
           target="_blank"
           href="https://www.google.com/search?q=stonesvillage&rlz=1C1CHBF_enCA968CA968&oq=ston&gs_lcrp=EgZjaHJvbWUqBggDEEUYOzIGCAAQRRg8MggIARBFGCcYOzIOCAIQRRgnGDsYgAQYigUyBggDEEUYOzIGCAQQRRg5MgYIBRBFGDwyBggGEEUYPDIGCAcQRRg80gEIMzAxNmowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x882b2fe60e9cb40b:0x2e2e691d0deb630e,1"
-          className="bg-neutral-800 text-accent-color font-semibold py-5 px-8 text-xl rounded-md shadow-xl"
+          className="bg-neutral-800 lg:hover:text-bg-color-dark lg:hover:bg-accent-color transition duration-200 text-accent-color font-semibold py-5 px-8 text-xl rounded-md shadow-xl"
         >
           <button className="w-40">Click Here</button>
         </Link>
