@@ -15,7 +15,7 @@ export default function BackUp() {
 
   return (
     <div>
-      {windowY > 1400 && (
+      {windowY > 1700 && (
         <div
           className="bg-accent-color rounded-full cursor-pointer shadow-md h-10 w-10 fixed bottom-12 right-12 text-3xl flex items-center justify-center "
           onClick={() => {
