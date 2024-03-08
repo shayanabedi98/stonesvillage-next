@@ -56,29 +56,31 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} action="">
       <div className="flex flex-col gap-6 items-center justify-center">
-        <input type="text" name="timestamp" className="hidden" aria-hidden="true" />
+        <input type="text" name="timestamp" className="hidden text-bg-color-dark" aria-hidden="true" />
         <input
           min={3}
           type="text"
           name="name"
           placeholder="Name"
           required
-          className="w-72 sm:w-[400px] py-2 px-4 shadow-xl"
+          className="w-72 text-bg-color-dark sm:w-[400px] py-2 px-4 shadow-xl"
         />
         <input
           type="tel"
           min={9}
           name="number"
+          autoComplete="off"
           placeholder="Phone Number"
+          pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
           required
-          className="w-72 sm:w-[400px] py-2 px-4 shadow-xl"
+          className="w-72 text-bg-color-dark sm:w-[400px] py-2 px-4 shadow-xl"
         />
         <input
           type="email"
           name="email"
           placeholder="Email"
           required
-          className="w-72 sm:w-[400px] py-2 px-4 shadow-xl"
+          className="w-72 text-bg-color-dark sm:w-[400px] py-2 px-4 shadow-xl"
         />
         <textarea
           name="message"

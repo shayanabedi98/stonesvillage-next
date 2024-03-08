@@ -52,7 +52,7 @@ export default function Hero() {
         <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
           Supply, Design, Fabricate, Install
         </h1>
-        <h2 className="text-2xl sm:text-3xl 2xl:text-4xl">
+        <h2 className="text-2xl sm:text-3xl 2xl:text-4xl max-w-[80%]">
           Elevate Your Space with Stones Village
         </h2>
         <Link
