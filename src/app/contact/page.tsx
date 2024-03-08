@@ -26,7 +26,7 @@ export default function Contact() {
             position="Operations Manager"
           />
           <ContactCards
-            name="Arshya Abedi"
+            name="Arty Abedi"
             number="647-890-4176"
             position="Assistant Manager"
           />

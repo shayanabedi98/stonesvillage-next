@@ -52,6 +52,7 @@ export default function Inventory() {
           />
         </div>
       )}
+      <div id="filter"></div>
       <div className="grid grid-cols-2 sm:flex justify-center justify-items-center gap-10 mt-div">
         <Filter
           content="All"

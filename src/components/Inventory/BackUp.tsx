@@ -15,12 +15,12 @@ export default function BackUp() {
 
   return (
     <div>
-      {windowY > 1320 && (
+      {windowY > 1400 && (
         <div
           className="bg-accent-color rounded-full cursor-pointer shadow-md h-10 w-10 fixed bottom-12 right-12 text-3xl flex items-center justify-center "
           onClick={() => {
-            window.scrollTo({ top: 1320, behavior: "smooth" });
-            setWindowY(1320);
+            window.location.href = "/inventory#filter";
+            setWindowY(0);
           }}
         >
           <IoArrowUpOutline className="" />

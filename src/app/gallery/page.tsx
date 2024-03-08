@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Gallery() {
   return (
-    <main className="bg-bg-color-light">
+    <main className="bg-bg-color-light max-xl:text-center">
       <Hero content="Gallery" />
       <div className="px-6 sm:px-16 lg:px-32 xl:px-44 flex flex-col items-center text-bg-color-dark mt-content">
         <div className="flex flex-col xl:flex-row justify-center items-center gap-10 leading-loose">
