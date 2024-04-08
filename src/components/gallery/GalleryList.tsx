@@ -23,7 +23,6 @@ export default function GalleryList() {
     { src: "/assets/gallery/item19.jpg" },
     { src: "/assets/gallery/item20.jpg" },
     { src: "/assets/gallery/item21.jpg" },
-    { src: "/assets/gallery/item21.jpg" },
   ];
 
   return (
