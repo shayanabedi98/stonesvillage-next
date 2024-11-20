@@ -57,7 +57,7 @@ export default function Navbar() {
         </div>
 
         <div
-          className="flex items-end lg:hidden text-2xl"
+          className="flex items-end lg:hidden text-2xl pb-1"
           onClick={() => setIsMobile(true)}
         >
           <RxHamburgerMenu />
