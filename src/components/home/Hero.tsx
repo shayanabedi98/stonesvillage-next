@@ -7,10 +7,10 @@ import Image from "next/image";
 
 export default function Hero() {
   const bgArr = [
-    "/assets/other/homebg1.webp",
     "/assets/other/homebg5.webp",
-    "/assets/other/homebg3.webp",
+    "/assets/other/homebg1.webp",
     "/assets/other/homebg6.webp",
+    "/assets/other/homebg3.webp",
   ];
 
   const [bgIndex, setBgIndex] = useState(0);
@@ -27,7 +27,7 @@ export default function Hero() {
         // Fade in the new image
         setOpacity(1);
       }, 1500); // Adjust this value to match your fade transition duration
-    }, 9000);
+    }, 6000);
     return () => clearInterval(interval);
   }, [bgArr.length]);
 
