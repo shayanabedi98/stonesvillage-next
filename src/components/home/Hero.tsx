@@ -48,7 +48,7 @@ export default function Hero() {
           {/* <Image priority src={bgArr[bgIndex]} layout="fill" objectFit="cover" alt="" className="transform "/> */}
         </motion.div>
       </AnimatePresence>
-      <div className="bg-black bg-opacity-15 flex flex-col items-center gap-16 justify-center text-center text-white font-semibold h-[720px] sm:h-[900px] 2xl:h-[980px]">
+      <div className="bg-black bg-opacity-20 flex flex-col items-center gap-16 justify-center text-center text-white font-semibold h-[720px] sm:h-[900px] 2xl:h-[980px]">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
           Supply, Design, Fabricate, Install
         </h1>
