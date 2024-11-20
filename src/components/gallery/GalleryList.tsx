@@ -1,4 +1,6 @@
-import Image from "next/image";
+"use client";
+
+import GalleryItem from "./GalleryItem";
 
 export default function GalleryList() {
   const gallery = [
@@ -23,23 +25,14 @@ export default function GalleryList() {
     { src: "/assets/gallery/item19.jpg" },
     { src: "/assets/gallery/item20.jpg" },
     { src: "/assets/gallery/item21.jpg" },
+    { src: "/assets/gallery/item22.jpg" },
+    { src: "/assets/gallery/item23.jpg" },
   ];
 
   return (
-    <div className="xl:bg-neutral-400 my-div w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center xl:p-10 gap-10 ">
+    <div className="my-div w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center gap-6 ">
       {gallery.map((item, index) => {
-        return (
-          <div key={index}>
-            <Image
-              src={item.src}
-              priority
-              alt=""
-              className="shadow-lg h-72 w-72 sm:h-80 sm:w-80 object-cover"
-              width={600}
-              height={600}
-            />
-          </div>
-        );
+        return <GalleryItem src={item.src} key={index} />;
       })}
     </div>
   );

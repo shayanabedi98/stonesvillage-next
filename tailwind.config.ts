@@ -25,7 +25,7 @@ const config: Config = {
       },
       backgroundSize: {
         "90": "90%",
-      }
+      },
     },
   },
   plugins: [

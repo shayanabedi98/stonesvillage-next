@@ -5,15 +5,17 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Stones Village | About Us",
-  description: "Stones Village Inc. is a company that sells, supplies, fabricates, and installs stones for kitchens, bathrooms, vanity, and more. We have a wide variety of stones such as marble, onyx, quartz, and porcelain. We are located in the heart of the city of Vaughan, Ontario.",
-  keywords: "stones, marble, onyx, porcelain, quartz, kitchen, vanity, countertops, slabs, supply, fabricate, install, vaughan",
+  description:
+    "Stones Village Inc. is a company that sells, supplies, fabricates, and installs stones for kitchens, bathrooms, vanity, and more. We have a wide variety of stones such as marble, onyx, quartz, and porcelain. We are located in the heart of the city of Vaughan, Ontario.",
+  keywords:
+    "stones, marble, onyx, porcelain, quartz, kitchen, vanity, countertops, slabs, supply, fabricate, install, vaughan",
 };
 
 export default function AboutUs() {
   return (
     <div className="bg-bg-color-light">
       <Hero content="About Us" />
-      <div className="flex justify-center my-content max-lg:w-[90%] mx-auto">
+      <div className="flex py-10 justify-center my-content max-lg:w-[90%] mx-auto">
         <Image
           src="/assets/other/sv.png"
           alt=""
@@ -25,7 +27,7 @@ export default function AboutUs() {
       <div className="px-6 sm:px-16 lg:px-32 xl:px-44 flex flex-col items-center bg-bg-color-dark max-xl:text-center ">
         <div className="mt-content xl:mt-div flex flex-col-reverse xl:flex-row justify-center items-center gap-10 leading-loose">
           <div className="flex flex-col xl:w-1/2">
-            <h2 className="text-accent-color text-2xl mb-6 xl:mb-content font-semibold">
+            <h2 className="text-accent-color text-2xl mb-6 font-semibold">
               From Dubai to Canada
             </h2>
             <p className="">
@@ -60,17 +62,17 @@ export default function AboutUs() {
 
         <div className="mt-div flex flex-col-reverse xl:flex-row justify-center items-center gap-10 leading-loose">
           <div className="flex flex-col xl:w-1/2">
-            <h2 className="text-accent-color text-2xl text-start mb-6 xl:mb-content font-semibold max-xl:text-center">
+            <h2 className="text-accent-color text-2xl text-start mb-6 font-semibold max-xl:text-center">
               Our Mission
             </h2>
             <p className="">
               Founded by Ahmad Abedi, Stones Village is not just about providing
-              stone services; it&apos;s a mission to transform everyday spaces into
-              extraordinary art pieces. His passion for excellence, attention to
-              the finest details, and unwavering commitment to customer
-              satisfaction have been the guiding principles of our journey,
-              propelling us to achieve new heights and earn a stellar reputation
-              in the industry.
+              stone services; it&apos;s a mission to transform everyday spaces
+              into extraordinary art pieces. His passion for excellence,
+              attention to the finest details, and unwavering commitment to
+              customer satisfaction have been the guiding principles of our
+              journey, propelling us to achieve new heights and earn a stellar
+              reputation in the industry.
             </p>
             <br />
             <p>

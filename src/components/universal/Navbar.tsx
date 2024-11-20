@@ -14,49 +14,55 @@ export default function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
 
   return (
-    <div className="flex justify-between px-6 py-4 lg:px-10 fixed top-0 left-0 right-0 w-full bg-[rgba(20,20,20,0.85)] h-24 shadow-md z-[1]">
-      <div className="flex items-center w-1/3">
-        <Link className="flex items-center gap-2" href="/">
-          <Image
-            className="w-12"
-            priority
-            src="/assets/other/sv-cube.png"
-            alt=""
-            height={50}
-            width={50}
-          />
-          <Image
-            className="min-w-36"
-            priority
-            src="/assets/other/sv-name.png"
-            alt=""
-            height={25}
-            width={200}
-          />
-        </Link>
-      </div>
-      <div className="hidden relative lg:flex items-center gap-1 w-2/3 justify-end right-4">
-        <NavbarItems location="/" content="Home" />
-        <NavbarItems location="/inventory" content="Inventory" />
-        <NavbarItems location="/gallery" content="Gallery" />
-        <NavbarItems location="/about" content="About Us" />
-        <NavbarItems location="/contact" content="Contact" />
-        <div className="hidden lg:flex items-center relative left-4 justify-center gap-10">
-          <Link target="_blank" href="https://www.instagram.com/stonesvillage/">
-            <FaInstagram className="text-3xl hover:text-accent-color transition duration-200 ease-in-out" />
-          </Link>
-          <Link href="/contact/#mail">
-            <MdMailOutline className="text-3xl hover:text-accent-color transition duration-200 ease-in-out" />
+    <div>
+      <nav className="flex justify-between px-6 pb-6 lg:px-10 fixed top-0 left-0 right-0 w-full bg-[rgba(20,20,20,0.85)] h-24 shadow-md z-[1] backdrop-blur-md">
+        <div className="flex items-end w-1/3">
+          <Link className="flex items-center gap-2" href="/">
+            <Image
+              className="w-10"
+              priority
+              src="/assets/other/sv-cube.png"
+              alt=""
+              height={50}
+              width={50}
+            />
+            <Image
+              className="min-w-32"
+              priority
+              src="/assets/other/sv-name.png"
+              alt=""
+              height={25}
+              width={180}
+            />
           </Link>
         </div>
-      </div>
+        <div className="hidden lg:flex items-end gap-6 w-2/3 justify-end">
+          <NavbarItems location="/" content="Home" />
+          <NavbarItems location="/inventory" content="Inventory" />
+          <NavbarItems location="/gallery" content="Gallery" />
+          <NavbarItems location="/about" content="About Us" />
+          <NavbarItems location="/contact" content="Contact" />
+          <div className="h-10 w-[2px] bg-bg-color-light"></div>
+          <div className="hidden lg:flex items-center justify-center gap-4">
+            <Link
+              target="_blank"
+              href="https://www.instagram.com/stonesvillage/"
+            >
+              <FaInstagram className="text-3xl hover:text-accent-color transition duration-200 ease-in-out" />
+            </Link>
+            <Link href="/contact/#mail">
+              <MdMailOutline className="text-3xl hover:text-accent-color transition duration-200 ease-in-out" />
+            </Link>
+          </div>
+        </div>
 
-      <div
-        className="flex items-center lg:hidden text-2xl"
-        onClick={() => setIsMobile(true)}
-      >
-        <RxHamburgerMenu />
-      </div>
+        <div
+          className="flex items-end lg:hidden text-2xl"
+          onClick={() => setIsMobile(true)}
+        >
+          <RxHamburgerMenu />
+        </div>
+      </nav>
       <AnimatePresence>
         {isMobile && (
           <motion.div
@@ -64,7 +70,7 @@ export default function Navbar() {
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ duration: 0.2 }}
-            className="fixed font-semibold text-xl text-bg-color-dark flex px-6 py-9 flex-col items-end gap-6 top-0 left-0 w-full h-full bg-accent-color"
+            className="fixed z-10 font-semibold text-xl text-bg-color-dark flex px-6 py-9 flex-col items-end gap-6 top-0 left-0 w-full h-full bg-accent-color"
           >
             <MdClose
               className="text-2xl border-2 border-bg-color-dark rounded-sm"

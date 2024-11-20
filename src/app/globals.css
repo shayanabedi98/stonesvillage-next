@@ -13,6 +13,15 @@
   --m-content: 75px;
 }
 
+@keyframes loadingAnimation {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
 *,
 *::after,
 *::before {
@@ -29,6 +38,10 @@ body {
 
 textarea {
   resize: none;
+}
+
+.loading {
+  animation: 0.8s loadingAnimation linear infinite;
 }
 
 @media (min-width: 640px) {

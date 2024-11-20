@@ -8,9 +8,9 @@ import Image from "next/image";
 export default function Hero() {
   const bgArr = [
     "/assets/other/homebg1.webp",
-    "/assets/other/homebg2.webp",
+    "/assets/other/homebg5.webp",
     "/assets/other/homebg3.webp",
-    "/assets/other/homebg4.webp",
+    "/assets/other/homebg6.webp",
   ];
 
   const [bgIndex, setBgIndex] = useState(0);
@@ -48,7 +48,7 @@ export default function Hero() {
           {/* <Image priority src={bgArr[bgIndex]} layout="fill" objectFit="cover" alt="" className="transform "/> */}
         </motion.div>
       </AnimatePresence>
-      <div className="flex flex-col items-center gap-24 justify-center text-center text-white font-semibold h-[720px] sm:h-[900px] 2xl:h-[980px]">
+      <div className="bg-black bg-opacity-15 flex flex-col items-center gap-16 justify-center text-center text-white font-semibold h-[720px] sm:h-[900px] 2xl:h-[980px]">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
           Supply, Design, Fabricate, Install
         </h1>
@@ -57,7 +57,7 @@ export default function Hero() {
         </h2>
         <Link
           href="/inventory"
-          className="bg-accent-color hover:bg-bg-color-dark transition duration-200 ease-in-out py-4 px-7 lg:px-8 lg:py-6 text-lg lg:text-xl rounded-md shadow-xl"
+          className="bg-[#d3b443] hover:bg-bg-color-dark transition duration-200 ease-in-out py-4 px-7 lg:px-8 lg:py-6 text-lg lg:text-xl rounded-md shadow-xl"
         >
           <button>View Inventory</button>
         </Link>
