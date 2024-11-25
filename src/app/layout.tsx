@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     "stones, marble, onyx, porcelain, quartz, kitchen, vanity, countertops, slabs, supply, fabricate, install, vaughan",
 };
 
+window.dataLayer = window.dataLayer || [];
+function gtag() {
+  dataLayer.push(arguments);
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,16 +33,10 @@ export default function RootLayout({
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-11399823022"
         ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-11399823022');
-            `,
-          }}
-        />
+        <script>
+          {gtag("js", new Date())}
+          {gtag("config", "AW-11399823022")}
+        </script>
       </Head>
       <body className={inter.className}>
         <Navbar />
