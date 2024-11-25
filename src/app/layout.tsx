@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/universal/Navbar";
 import Footer from "@/components/universal/Footer";
-import Head from "next/head";
+import { GoogleTagManager } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,11 +15,6 @@ export const metadata: Metadata = {
     "stones, marble, onyx, porcelain, quartz, kitchen, vanity, countertops, slabs, supply, fabricate, install, vaughan",
 };
 
-window.dataLayer = window.dataLayer || [];
-function gtag() {
-  dataLayer.push(arguments);
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,22 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        {/* Google Tag Manager */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-11399823022"
-        ></script>
-        <script>
-          {gtag("js", new Date())}
-          {gtag("config", "AW-11399823022")}
-        </script>
-      </Head>
       <body className={inter.className}>
         <Navbar />
         {children}
         <Footer />
       </body>
+      <GoogleTagManager gtmId="AW-11399823022" />
     </html>
   );
 }
