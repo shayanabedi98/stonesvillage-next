@@ -23,11 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className}`}>
         <NextAuthProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <div className="flex flex-col min-h-lvh">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
         </NextAuthProvider>
       </body>
       <GoogleTagManager gtmId="AW-11399823022" />
