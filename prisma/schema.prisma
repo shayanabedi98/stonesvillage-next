@@ -60,9 +60,10 @@ model Session {
 }
 
 model Post {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String
   image     String?
   stoneType String
   color     Int
+  createdAt DateTime @default(now())
 }
