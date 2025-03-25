@@ -6,6 +6,7 @@ import { getCroppedImg } from "@/components/utils/cropImage";
 import Image from "next/image";
 import { MdOutlineRectangle, MdOutlineSquare } from "react-icons/md";
 import CropperModal from "./CropperModal";
+import { toast, Toaster } from "react-hot-toast";
 
 export default function ImageUploader({
   onChange,
@@ -22,7 +23,6 @@ export default function ImageUploader({
   const [zoom, setZoom] = useState(1);
   const [showCropper, setShowCropper] = useState(false);
   const [aspect, setAspect] = useState(4 / 3);
-  //   const [cropping, setCropping] = useState(false);
 
   // Add a ref for the file input
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -46,6 +46,10 @@ export default function ImageUploader({
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      if (file.size > 2 * 1024 * 1024) { // Check if file size exceeds 2MB
+        toast.error("File size exceeds 2MB");
+        return;
+      }
       const reader = new FileReader();
       reader.onloadend = () => setImage(reader.result);
       reader.readAsDataURL(file);
@@ -53,7 +57,6 @@ export default function ImageUploader({
     }
   };
 
-  // Modify the remove image button click handler
   const handleRemoveImage = () => {
     setImage(null);
     setCrop({ x: 0, y: 0 });
@@ -84,6 +87,7 @@ export default function ImageUploader({
 
   return (
     <div className="flex flex-col items-center gap-2">
+      <Toaster />
       <div className="mx-auto flex flex-col items-center gap-2 self-start">
         <Image
           src={image ? image.toString() : "/assets/other/default.png"}

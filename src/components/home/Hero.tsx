@@ -74,7 +74,7 @@ export default function Hero() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
               Welcome to Stones Village
             </h1>
-            <h2 className="text-2xl 2xl:text-3xl max-w-[80%]">
+            <h2 className="text-2xl 2xl:text-3xl max-sm:text-lg sm:max-w-[80%]">
               Supply &bull; Design &bull; Fabricate &bull; Install
             </h2>
             <Link

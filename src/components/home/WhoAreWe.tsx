@@ -1,12 +1,13 @@
 import Image from "next/image";
+import SubHeader from "../universal/SubHeader";
 
 export default function WhoAreWe() {
   return (
     <div className="flex flex-col mt-div items-center">
-      <h3 className="text-center font-semibold text-3xl">Who Are We?</h3>
-      <p className="mt-1">
-        We are dedicated to providing the best stone craftsmanship.
-      </p>
+      <SubHeader
+        header="Who Are We?"
+        subheader="We are dedicated to providing the best stone craftsmanship."
+      />
       <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-4 mt-16 xl:mt-content">
         <div className="flex justify-center lg:justify-start w-full">
           <Image

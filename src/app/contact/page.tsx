@@ -35,8 +35,8 @@ export default function Contact() {
       </div>
       <div className="px-6 text-bg-color-light sm:px-16 lg:px-32 xl:px-44 flex flex-col items-center justify-center bg-bg-color-dark">
         <div className="mt-content flex flex-col items-center justify-center gap-6">
-          <h2 className="text-5xl">Hey there! Let&apos;s Talk.</h2>
-          <p className="text-2xl">
+          <h2 className="text-5xl text-center">Hey there! Let&apos;s Talk.</h2>
+          <p className="text-2xl text-center">
             Send us any questions you have or just say Hello!
           </p>
         </div>

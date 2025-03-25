@@ -3,14 +3,15 @@ import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import { PiTruckLight } from "react-icons/pi";
 import { GiCircularSaw } from "react-icons/gi";
 import { IoHammerOutline } from "react-icons/io5";
+import SubHeader from "../universal/SubHeader";
 
 export default function OurServices() {
   return (
     <div className="mt-div text-center">
-      <h3 className="text-center font-semibold text-3xl">Our Process</h3>
-      <p className="mt-1">
-        Discover our process, from quotes to installations.
-      </p>
+      <SubHeader
+        header="Our Process"
+        subheader="Discover our process, from quotes to installations."
+      />
       <div className="mt-content flex gap-4 sm:gap-8 text-bg-color-light max-xl:grid max-xl:grid-cols-2 max-xl:place-items-center max-sm:grid-cols-1">
         <OurServicesCards
           image={<LiaFileInvoiceDollarSolid />}

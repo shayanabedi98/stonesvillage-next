@@ -7,6 +7,7 @@ import { redirect } from "next/navigation";
 import { prisma } from "../../../lib/prisma";
 import Container from "@/components/universal/Container";
 import Image from "next/image";
+import SubHeader from "@/components/universal/SubHeader";
 
 export const metadata: Metadata = {
   title: "Stones Village | Inventory",
@@ -17,18 +18,17 @@ export const metadata: Metadata = {
 };
 
 export default async function InventoryPage() {
-
-  // const posts = await prisma.post.findMany({
-  //   orderBy: [
-  //     { stoneType: "asc" },
-  //     {
-  //       name: "asc",
-  //     },
-  //     {
-  //       color: "asc",
-  //     },
-  //   ],
-  // });
+  const posts = await prisma.post.findMany({
+    orderBy: [
+      { stoneType: "asc" },
+      {
+        name: "asc",
+      },
+      {
+        color: "asc",
+      },
+    ],
+  });
 
   return (
     <div className="bg-bg-color-light">
@@ -62,17 +62,15 @@ export default async function InventoryPage() {
               />
             </div>
           </div>
-          {/* <div>
-            <h3 className="text-center font-semibold text-3xl mt-div">
-              Our Collection
-            </h3>
-            <p className="mt-1">
-              View our extensive inventory and find the perfect stone for you.
-            </p>
-          </div> */}
+           <div className="mt-div">
+           <SubHeader
+              header="Our Collection"
+              subheader="View our extensive inventory and find the perfect stone for you."
+            />
+           </div>
           <div className="my-content w-full">
-            {/* <InventoryList posts={posts} /> */}
-            <Inventory />
+            <InventoryList posts={posts} />
+            {/* <Inventory /> */}
           </div>
         </div>
       </Container>

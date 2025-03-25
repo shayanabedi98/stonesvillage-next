@@ -2,6 +2,7 @@ import Services from "@/components/about/Services";
 import Hero from "@/components/universal/Hero";
 import Image from "next/image";
 import type { Metadata } from "next";
+import SubHeader from "@/components/universal/SubHeader";
 
 export const metadata: Metadata = {
   title: "Stones Village | About Us",
@@ -13,9 +14,9 @@ export const metadata: Metadata = {
 
 export default function AboutUs() {
   return (
-    <div className="bg-bg-color-light">
+    <div className="">
       <Hero content="About Us" />
-      <div className="flex py-10 justify-center my-content max-lg:w-[90%] mx-auto">
+      {/* <div className="flex py-10 justify-center my-content max-lg:w-[90%] mx-auto">
         <Image
           src="/assets/other/sv.png"
           alt=""
@@ -23,11 +24,11 @@ export default function AboutUs() {
           width={1000}
           height={900}
         />
-      </div>
-      <div className="px-6 sm:px-16 text-bg-color-light lg:px-32 xl:px-44 flex flex-col items-center bg-bg-color-dark max-xl:text-center ">
+      </div> */}
+      <div className="px-6 sm:px-16 text-bg-color-dark lg:px-32 xl:px-44 flex flex-col items-center max-xl:text-center ">
         <div className="mt-content xl:mt-div flex flex-col-reverse xl:flex-row justify-center items-center gap-10 leading-loose">
           <div className="flex flex-col xl:w-1/2">
-            <h2 className="text-accent-color text-2xl mb-6 font-semibold">
+            <h2 className="text-2xl mb-6 font-semibold">
               From Dubai to Canada
             </h2>
             <p className="">
@@ -62,7 +63,7 @@ export default function AboutUs() {
 
         <div className="mt-div flex flex-col-reverse xl:flex-row justify-center items-center gap-10 leading-loose">
           <div className="flex flex-col xl:w-1/2">
-            <h2 className="text-accent-color text-2xl text-start mb-6 font-semibold max-xl:text-center">
+            <h2 className="text-2xl text-start mb-6 font-semibold max-xl:text-center">
               Our Mission
             </h2>
             <p className="">
@@ -92,9 +93,9 @@ export default function AboutUs() {
           ></div>
         </div>
         <div className="my-div">
-          <h2 className="text-accent-color text-2xl font-semibold mb-content text-center">
-            Services
-          </h2>
+          <div className="mb-content">
+            <SubHeader header="Services" subheader="We do it all." />
+          </div>
           <div className="lg:px-10 xl:px-20 grid grid-cols-1 xl:grid-cols-2 gap-4 place-items-center">
             <Services
               title="Stone Supply"

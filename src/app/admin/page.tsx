@@ -12,6 +12,8 @@ export type Posts = {
   description: string | null;
   image: string | null;
   height: number;
+  heightFraction: string;
+  widthFraction: string;
   width: number;
   color: string | number;
   createdAt: Date;

@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import SubHeader from "../universal/SubHeader";
 
 export default function Discoverbeauty() {
   return (
     <div className="flex flex-col mt-div items-center">
-      <h3 className="text-center font-semibold text-3xl">Discover Beauty</h3>
-      <p className="mt-1">Explore our projects and see the beauty we create.</p>
+      <SubHeader
+        header="Discover Beauty"
+        subheader="Explore our projects and see the beauty we create."
+      />
       <div className="mt-16 xl:mt-content flex flex-col gap-8 lg:gap-4 lg:flex-row items-center justify-center">
         <div className="flex justify-center lg:justify-start w-full">
           <Image

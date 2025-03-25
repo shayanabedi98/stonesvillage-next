@@ -1,5 +1,6 @@
 import { FaStar } from "react-icons/fa";
 import Link from "next/link";
+import SubHeader from "../universal/SubHeader";
 
 export default function Reviews() {
   const reviews = [
@@ -37,10 +38,10 @@ export default function Reviews() {
 
   return (
     <div className="my-div flex flex-col items-center w-full">
-      <h3 className="text-center font-semibold text-3xl">Testimonials</h3>
-      <p className="mt-1">
-        Here are some of the reviews from our satisfied customers.
-      </p>
+      <SubHeader
+        header="Testimonials"
+        subheader="Here are some of the reviews from our satisfied customers."
+      />
       <div className="mt-16 xl:mt-content bg-neutral-700 w-full flex gap-20 p-4 overflow-x-auto scrollbar-thin scrollbar-thumb-accent-color scrollbar-track-bg-color-dark">
         {reviews.map((item, index) => (
           <div

@@ -63,10 +63,10 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
   return (
     <div className="flex flex-col w-full gap-4">
       <div
-        className={`flex gap-4 items-center ${
+        className={`flex gap-4 justify-center items-center ${
           path == "/admin"
-            ? "justify-center max-sm:flex-col"
-            : "max-xl:justify-center"
+            ? " max-sm:flex-col"
+            : ""
         }`}
       >
         <div className="flex relative max-sm:w-full">
@@ -90,9 +90,7 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
         Object.entries(groupedResults).map(([stoneType, posts]) => (
           <div key={stoneType} className="mb-4 mt-8">
             <h2
-              className={`text-2xl font-semibold mb-8 ${
-                path == "/admin" ? "text-center" : "text-center"
-              }`}
+              className={`text-2xl text-center font-semibold mb-8`}
             >
               {stoneType}
             </h2>
@@ -123,8 +121,8 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
                     {post.name}
                   </p>
                   <div
-                    className={`text-xs opacity-0 group-hover:opacity-100 transition absolute flex items-center flex-col justify-center backdrop-blur-[5px] backdrop-brightness-50 text-bg-color-light bottom-0 min-w-32 rounded-tr-md px-2 py-1 ${
-                      path == "/admin" ? "left-0" : ""
+                    className={`text-xs opacity-0 group-hover:opacity-100 transition absolute flex items-center flex-col justify-center backdrop-blur-[5px] backdrop-brightness-50 text-bg-color-light bottom-0 min-w-32  px-2 py-1 ${
+                      path == "/admin" ? "left-0 rounded-tr-md" : "rounded-t-md"
                     }`}
                   >
                     <p className={``}>
