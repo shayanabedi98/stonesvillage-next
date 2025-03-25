@@ -3,10 +3,18 @@ import { NextResponse } from "next/server";
 import { prisma } from "../../../../lib/prisma";
 import { colorDecoder } from "@/components/utils/colorDecoder";
 
-export async function GET() {
-  const session = await getUserSession();
+export async function GET(req: Request) {
+  // Check if request is from your website
+  const origin = req.headers.get("origin");
+  const referer = req.headers.get("referer");
 
-  if (!session) {
+  const allowedOrigins = [`${process.env.NEXTAUTH_URL}`];
+
+  const isValidOrigin = allowedOrigins.some(
+    (allowed) => origin?.includes(allowed) || referer?.includes(allowed)
+  );
+
+  if (!isValidOrigin) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

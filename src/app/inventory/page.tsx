@@ -1,9 +1,6 @@
 import Hero from "@/components/universal/Hero";
-import Inventory from "@/components/Inventory/Inventory";
 import type { Metadata } from "next";
 import InventoryList from "@/components/admin/InventoryList";
-import { getUserSession } from "@/components/utils/getUserSession";
-import { redirect } from "next/navigation";
 import { prisma } from "../../../lib/prisma";
 import Container from "@/components/universal/Container";
 import Image from "next/image";
@@ -70,7 +67,6 @@ export default async function InventoryPage() {
            </div>
           <div className="my-content w-full">
             <InventoryList posts={posts} />
-            {/* <Inventory /> */}
           </div>
         </div>
       </Container>
