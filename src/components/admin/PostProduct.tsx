@@ -16,6 +16,10 @@ type FormData = {
   stoneType: string;
   color: string;
   description: string | null;
+  height: number;
+  heightFraction: string;
+  widthFraction: string;
+  width: number;
 };
 
 const stoneTypes = [
@@ -27,7 +31,42 @@ const stoneTypes = [
   "Dekton",
 ];
 
-export default function PostProduct({}) {
+const fractionalInches = [
+  "--",
+  "1/2",
+  "1/4",
+  "1/8",
+  "1/16",
+  "1/32",
+  "1/64",
+  "3/4",
+  "3/8",
+  "3/16",
+  "3/32",
+  "3/64",
+  "5/8",
+  "5/16",
+  "5/32",
+  "5/64",
+  "7/8",
+  "7/16",
+  "7/32",
+  "7/64",
+  "9/16",
+  "9/32",
+  "9/64",
+  "11/16",
+  "11/32",
+  "11/64",
+  "13/16",
+  "13/32",
+  "13/64",
+  "15/16",
+  "15/32",
+  "15/64",
+];
+
+export default function PostProduct() {
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<FormData>({
@@ -36,6 +75,10 @@ export default function PostProduct({}) {
     stoneType: stoneTypes[0],
     color: stoneColors[0],
     description: "",
+    height: 0,
+    heightFraction: fractionalInches[0],
+    widthFraction: fractionalInches[0],
+    width: 0,
   });
   const { setProducstChangeCounter } = useWatchForChanges();
 
@@ -58,6 +101,10 @@ export default function PostProduct({}) {
       color: stoneColors[0],
       stoneType: stoneTypes[0],
       description: "",
+      height: 0,
+      width: 0,
+      heightFraction: fractionalInches[0],
+      widthFraction: fractionalInches[0],
     });
     setShowModal(false);
   };
@@ -175,6 +222,96 @@ export default function PostProduct({}) {
                     </option>
                   ))}
                 </select>
+              </div>
+            </div>
+            <div className="flex gap-2 w-full">
+              <div className="flex gap-2 w-full">
+                <div className="flex flex-col gap-1 w-full">
+                  <label
+                    htmlFor="height"
+                    className="text-sm text-bg-color-light"
+                  >
+                    Height - Inches
+                  </label>
+                  <input
+                    className="w-full h-9 px-2 outline-none text-sm rounded-md"
+                    required
+                    type="number"
+                    step={1}
+                    name="height"
+                    value={formData.height}
+                    onChange={(e) =>
+                      handleChange(e.target.name, e.target.value)
+                    }
+                  />
+                </div>
+                <div className="flex flex-col gap-1 w-1/3">
+                  <label
+                    htmlFor="heightFraction"
+                    className="text-sm text-bg-color-light"
+                  >
+                    Fractional
+                  </label>
+                  <select
+                    className="w-full h-9 px-2 outline-none text-sm rounded-md"
+                    required
+                    name="heightFraction"
+                    value={formData.heightFraction}
+                    onChange={(e) =>
+                      handleChange(e.target.name, e.target.value)
+                    }
+                  >
+                    {fractionalInches.map((f, index) => (
+                      <option key={index} value={f}>
+                        {f}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <div className="flex gap-2 w-full">
+                <div className="flex flex-col gap-1 w-full">
+                  <label
+                    htmlFor="width"
+                    className="text-sm text-bg-color-light"
+                  >
+                    Width - Inches
+                  </label>
+                  <input
+                    className="w-full h-9 px-2 outline-none text-sm rounded-md"
+                    required
+                    type="number"
+                    step={1}
+                    name="width"
+                    value={formData.width}
+                    onChange={(e) =>
+                      handleChange(e.target.name, e.target.value)
+                    }
+                  />
+                </div>
+                <div className="flex flex-col gap-1 w-1/3">
+                  <label
+                    htmlFor="widthFraction"
+                    className="text-sm text-bg-color-light"
+                  >
+                    Fractional
+                  </label>
+                  <select
+                    className="w-full h-9 px-2 outline-none text-sm rounded-md"
+                    required
+                    name="widthFraction"
+                    value={formData.widthFraction}
+                    onChange={(e) =>
+                      handleChange(e.target.name, e.target.value)
+                    }
+                  >
+                    {fractionalInches.map((f, index) => (
+                      <option key={index} value={f}>
+                        {f}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </div>
             <div className="flex-col flex gap-1 w-full">

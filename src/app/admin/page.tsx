@@ -11,6 +11,8 @@ export type Posts = {
   stoneType: string;
   description: string | null;
   image: string | null;
+  height: number;
+  width: number;
   color: string | number;
   createdAt: Date;
 };
@@ -51,13 +53,12 @@ export default async function AdminPage() {
 
   return (
     <div className="min-h-lvh mt-20 mb-32">
+      {/* <SignOutButton /> */}
+
       <Container>
         <div className="flex flex-col items-center">
-          <h1 className="text-3xl mb-10">Admin Page</h1>
+          <h1 className="text-3xl mb-10">Admin Page {`🧑‍💼`}</h1>
           <ContentContainer posts={posts} galleryPosts={galleryPosts} />
-          {/* <SignOutButton /> */}
-
-          {/* <InventoryList posts={posts} /> */}
         </div>
       </Container>
     </div>

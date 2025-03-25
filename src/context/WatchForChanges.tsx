@@ -4,6 +4,8 @@ import { useContext, createContext, useState } from "react";
 type WatchForChangesContextType = {
   productsChangeCounter: number;
   setProducstChangeCounter: React.Dispatch<React.SetStateAction<number>>;
+  galleryChangeCounter: number;
+  setGalleryChangeCounter: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const WatchForChangesContext = createContext<
@@ -16,12 +18,15 @@ export function WatchForChangesProvider({
   children: React.ReactNode;
 }) {
   const [productsChangeCounter, setProducstChangeCounter] = useState(0);
+  const [galleryChangeCounter, setGalleryChangeCounter] = useState(0);
 
   return (
     <WatchForChangesContext.Provider
       value={{
         productsChangeCounter,
         setProducstChangeCounter,
+        galleryChangeCounter,
+        setGalleryChangeCounter
       }}
     >
       {children}

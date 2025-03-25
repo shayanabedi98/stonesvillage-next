@@ -1,7 +1,6 @@
 import { getUserSession } from "@/components/utils/getUserSession";
 import { NextResponse } from "next/server";
 import { prisma } from "../../../../lib/prisma";
-import { colorDecoder } from "@/components/utils/colorDecoder";
 
 export async function GET() {
   const session = await getUserSession();
@@ -11,19 +10,12 @@ export async function GET() {
   }
 
   try {
-    const posts = await prisma.post.findMany({
-      orderBy: [
-        { stoneType: "asc" },
-        {
-          name: "asc",
-        },
-        {
-          color: "asc",
-        },
-      ],
+    const getGallery = await prisma.galleryPost.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
     });
-
-    return NextResponse.json(posts);
+    return NextResponse.json(getGallery);
   } catch (error) {
     console.log(error);
     return NextResponse.json({ error: "An error occurred" }, { status: 500 });
@@ -39,23 +31,19 @@ export async function POST(req: Request) {
   }
 
   try {
-    const createPost = await prisma.post.create({
+    const postGallery = await prisma.galleryPost.create({
       data: {
-        name: formData.name,
-        stoneType: formData.stoneType,
-        color: colorDecoder(formData.color),
-        description: formData.description || null,
-        height: parseFloat(formData.height),
-        width: parseFloat(formData.width),
-        heightFraction: formData.heightFraction,
-        widthFraction: formData.widthFraction,
+        description: formData.description,
       },
     });
 
-    return NextResponse.json(createPost);
+    return NextResponse.json(postGallery);
   } catch (error) {
     console.log(error);
-    return NextResponse.json({ error: "An error occurred" }, { status: 500 });
+    return NextResponse.json(
+      { error: "An error occurred. Please try again." },
+      { status: 500 }
+    );
   }
 }
 
@@ -68,21 +56,14 @@ export async function PATCH(req: Request) {
   }
 
   try {
-    const updatePost = await prisma.post.update({
+    const updateGallery = await prisma.galleryPost.update({
       where: { id },
       data: {
-        name: formData.name,
-        stoneType: formData.stoneType,
-        color: colorDecoder(formData.color),
         description: formData.description || null,
-        height: parseFloat(formData.height),
-        width: parseFloat(formData.width),
-        heightFraction: formData.heightFraction,
-        widthFraction: formData.widthFraction,
       },
     });
 
-    return NextResponse.json(updatePost);
+    return NextResponse.json(updateGallery);
   } catch (error) {
     console.log(error);
     return NextResponse.json({ error: "An error occurred" }, { status: 500 });
@@ -98,11 +79,11 @@ export async function DELETE(req: Request) {
   }
 
   try {
-    const deletePost = await prisma.post.delete({
+    const deleteGallery = await prisma.galleryPost.delete({
       where: { id },
     });
 
-    return NextResponse.json(deletePost);
+    return NextResponse.json(deleteGallery);
   } catch (error) {
     console.log(error);
     return NextResponse.json({ error: "An error occurred" }, { status: 500 });

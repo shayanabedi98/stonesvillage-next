@@ -27,13 +27,13 @@ export async function POST(req: Request) {
 
   try {
     if (image && image instanceof File) {
-      const post = await prisma.post.findUnique({
+      const gallery = await prisma.galleryPost.findUnique({
         where: { id: id as string },
         select: { image: true },
       });
 
-      if (post && post.image) {
-        const fileKeyToRemove = post.image;
+      if (gallery && gallery.image) {
+        const fileKeyToRemove = gallery.image;
 
         const deleteParams = {
           Bucket: process.env.AWS_BUCKET_NAME!,
@@ -63,12 +63,12 @@ export async function POST(req: Request) {
       await s3.send(new PutObjectCommand(uploadParams));
 
       // Save the file key (not a signed URL) to your database
-      const updatedPost = await prisma.post.update({
+      const updatedGallery = await prisma.galleryPost.update({
         where: { id: id as string },
         data: { image: fileKeyToAdd },
       });
 
-      return NextResponse.json(updatedPost);
+      return NextResponse.json(updatedGallery);
     }
     console.log("No image file provided");
     return NextResponse.json(
@@ -95,18 +95,18 @@ export async function DELETE(req: Request) {
   }
 
   try {
-    const post = await prisma.post.findUnique({
+    const gallery = await prisma.galleryPost.findUnique({
       where: { id: id as string },
       select: { image: true },
     });
 
-    if (!post || !post.image) {
+    if (!gallery || !gallery.image) {
       return NextResponse.json({ error: "Image not found" }, { status: 404 });
     }
 
     const deleteParams = {
       Bucket: process.env.AWS_BUCKET_NAME!,
-      Key: post.image,
+      Key: gallery.image,
     };
 
     // Delete the image from S3

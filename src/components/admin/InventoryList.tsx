@@ -9,6 +9,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import EditProduct from "./EditProduct";
 import { useWatchForChanges } from "@/context/WatchForChanges";
+import { FaEye } from "react-icons/fa";
 
 export default function InventoryList({ posts }: { posts: Posts[] }) {
   const [inventory, setInventory] = useState<Posts[]>(posts);
@@ -104,8 +105,9 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
                   <Link
                     href={process.env.NEXT_PUBLIC_CDN_URL! + post.image}
                     target="_blank"
-                    className="backdrop-blur-lg flex items-center text-bg-color-light justify-center rounded-md absolute h-9 w-20 border transition bg-bg-color-dark lg:opacity-0 lg:group-hover:opacity-100"
+                    className="backdrop-blur-[1px] flex gap-1 items-center text-bg-color-light justify-center rounded-md absolute h-9 w-20 transition backdrop-brightness-[50%] opacity-0 group-hover:opacity-100"
                   >
+                    <FaEye />
                     View
                   </Link>
                   <Image
@@ -120,6 +122,19 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
                   >
                     {post.name}
                   </p>
+                  <div
+                    className={`text-xs opacity-0 group-hover:opacity-100 transition absolute flex items-center flex-col justify-center backdrop-blur-[5px] backdrop-brightness-50 text-bg-color-light bottom-0 min-w-32 rounded-tr-md px-2 py-1 ${
+                      path == "/admin" ? "left-0" : ""
+                    }`}
+                  >
+                    <p className={``}>
+                      Height: {post.height}&prime;&prime; {post.heightFraction}
+                    </p>
+                    <p className={``}>
+                      Width: {post.width}
+                      &prime;&prime; {post.widthFraction}
+                    </p>
+                  </div>
                   {path === "/admin" && <EditProduct product={post} />}
                 </div>
               ))}

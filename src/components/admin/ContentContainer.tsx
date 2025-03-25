@@ -4,6 +4,7 @@ import { useState } from "react";
 import InventoryList from "./InventoryList";
 import GalleryList from "../gallery/GalleryList";
 import { GalleryPosts, Posts } from "@/app/admin/page";
+import Gallery from "./Gallery";
 
 type Props = {
   posts: Posts[];
@@ -49,7 +50,7 @@ export default function ContentContainer({ posts, galleryPosts }: Props) {
         <InventoryList posts={posts} />
       ) : (
         // <GalleryList />
-        <p>coming soon...</p>
+        <Gallery galleryPosts={galleryPosts} />
       )}
     </div>
   );
