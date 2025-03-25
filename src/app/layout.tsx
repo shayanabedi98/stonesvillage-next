@@ -6,6 +6,7 @@ import Footer from "@/components/universal/Footer";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { NextAuthProvider } from "@/components/universal/Providers";
 import { Toaster } from "react-hot-toast";
+import { WatchForChangesProvider } from "@/context/WatchForChanges";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,12 +27,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className}`}>
         <NextAuthProvider>
-          <div className="flex flex-col min-h-lvh">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          <Toaster />
+          <WatchForChangesProvider>
+            <div className="flex flex-col min-h-lvh">
+              <Navbar />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+            <Toaster />
+          </WatchForChangesProvider>
         </NextAuthProvider>
       </body>
       <GoogleTagManager gtmId="AW-11399823022" />

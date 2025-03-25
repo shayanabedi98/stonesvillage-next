@@ -5,6 +5,7 @@ import Cropper from "react-easy-crop";
 import { getCroppedImg } from "@/components/utils/cropImage";
 import Image from "next/image";
 import { MdOutlineRectangle, MdOutlineSquare } from "react-icons/md";
+import CropperModal from "./CropperModal";
 
 export default function ImageUploader({
   onChange,
@@ -76,23 +77,25 @@ export default function ImageUploader({
     setAspect(aspect);
   };
 
+  const closeModal = () => {
+    setShowCropper(false);
+    setImage(null);
+  };
+
   return (
-    <div className="flex flex-col items-center">
-      <div className="mx-auto flex flex-col items-center gap-8 self-start">
+    <div className="flex flex-col items-center gap-2">
+      <div className="mx-auto flex flex-col items-center gap-2 self-start">
         <Image
-          src={image ? image.toString() : "/assets/other/default.webp"}
+          src={image ? image.toString() : "/assets/other/default.png"}
           alt=""
           width={400}
-          height={300}
-          className="border-2 object-cover rounded-md"
+          height={400}
+          className="border-2 h-80 w-80 object-cover rounded-md"
         />
         {!image && (
-          <label className="flex h-16 w-64 cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-gray-300 bg-gray-50 transition-colors hover:bg-gray-100">
-            <div className="flex flex-col items-center justify-center px-2 py-6">
-              <p className="mb-2 text-sm text-gray-500">
-                <span className="font-semibold">Click to upload</span>
-              </p>
-              <p className="text-xs text-gray-500">SVG, PNG, JPG</p>
+          <label className="flex cursor-pointer flex-col items-center justify-center rounded-lg">
+            <div className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold text-white shadow-sm lg:hover:opacity-85 transition">
+              Add Image
             </div>
             <input
               ref={fileInputRef}
@@ -104,40 +107,62 @@ export default function ImageUploader({
           </label>
         )}
       </div>
+
       {image && showCropper && (
-        <div className="flex flex-col items-center gap-4">
-          <div className="relative h-72 w-72">
-            <Cropper
-              crop={crop}
-              onCropChange={setCrop}
-              onZoomChange={setZoom}
-              onCropComplete={onCropComplete}
-              image={typeof image === "string" ? image : ""}
-              aspect={aspect}
-              zoom={zoom}
-              zoomSpeed={0.2}
-            />
+        <CropperModal header="Crop" closeModal={closeModal}>
+          <div className="flex flex-col items-center gap-4">
+            <div className="relative h-72 w-72">
+              <Cropper
+                crop={crop}
+                onCropChange={setCrop}
+                onZoomChange={setZoom}
+                onCropComplete={onCropComplete}
+                image={typeof image === "string" ? image : ""}
+                aspect={aspect}
+                zoom={zoom}
+                zoomSpeed={0.2}
+              />
+            </div>
+            <div className="flex relative -top-3 gap-2">
+              <button
+                type="button"
+                className={`text-lg h-6 w-6 flex items-center justify-center transition ${
+                  aspect === 4 / 3 ? "bg-neutral-200 text-bg-color-dark" : ""
+                }`}
+                onClick={() => handleAspect(4 / 3)}
+              >
+                <MdOutlineRectangle />
+              </button>
+              <button
+                className={`text-lg h-6 w-6 flex items-center justify-center transition ${
+                  aspect === 1 ? "bg-neutral-200 text-bg-color-dark" : ""
+                }`}
+                type="button"
+                onClick={() => handleAspect(1)}
+              >
+                <MdOutlineSquare />
+              </button>
+              <button
+                className={`text-lg h-6 w-6 flex items-center justify-center transition ${
+                  aspect === 3 / 4 ? "bg-neutral-200 text-bg-color-dark" : ""
+                }`}
+                type="button"
+                onClick={() => handleAspect(3 / 4)}
+              >
+                <MdOutlineRectangle className="rotate-90" />
+              </button>
+            </div>
+            <button
+              type="button"
+              onClick={handleCropComplete}
+              className="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500"
+            >
+              Done
+            </button>
           </div>
-          <div className="flex gap-2">
-            <button type="button" onClick={() => handleAspect(4 / 3)}>
-              <MdOutlineRectangle />
-            </button>
-            <button type="button" onClick={() => handleAspect(1)}>
-              <MdOutlineSquare />
-            </button>
-            <button type="button" onClick={() => handleAspect(3 / 4)}>
-              <MdOutlineRectangle className="rotate-90" />
-            </button>
-          </div>
-          <button
-            type="button"
-            onClick={handleCropComplete}
-            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500"
-          >
-            Done
-          </button>
-        </div>
+        </CropperModal>
       )}
+
       {image && !showCropper && (
         <button
           type="button"

@@ -7,7 +7,7 @@ import {
 } from "@aws-sdk/client-s3";
 import { NextResponse } from "next/server";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { prisma } from "../../../../lib/prisma";
+import { prisma } from "../../../../../lib/prisma";
 
 const s3 = new S3Client({
   region: process.env.AWS_REGION,
@@ -73,8 +73,50 @@ export async function POST(req: Request) {
       return NextResponse.json(updatedPost);
     }
     console.log("No image file provided");
+    return NextResponse.json(
+      { error: "No image file provided" },
+      { status: 400 }
+    );
   } catch (error) {
     console.error(error);
-    return new Response("Upload failed", { status: 500 });
+    return NextResponse.json({ error: "An error occurred" }, { status: 500 });
+  }
+}
+
+export async function DELETE(req: Request) {
+  const session = await getUserSession();
+  const formData = await req.formData();
+  const id = formData.get("id");
+
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  if (!id) {
+    return NextResponse.json({ error: "Post ID is required" }, { status: 400 });
+  }
+
+  try {
+    const post = await prisma.post.findUnique({
+      where: { id: id as string },
+      select: { image: true },
+    });
+
+    if (!post || !post.image) {
+      return NextResponse.json({ error: "Image not found" }, { status: 404 });
+    }
+
+    const deleteParams = {
+      Bucket: process.env.AWS_BUCKET_NAME!,
+      Key: post.image,
+    };
+
+    // Delete the image from S3
+    await s3.send(new DeleteObjectCommand(deleteParams));
+
+    return NextResponse.json({ message: "Image deleted" });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: "An error occurred" }, { status: 500 });
   }
 }

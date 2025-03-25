@@ -32,8 +32,7 @@
 }
 
 body {
-  background-color: var(--bg-color-dark);
-  color: var(--bg-color-light);
+  @apply bg-bg-color-light;
 }
 
 textarea {

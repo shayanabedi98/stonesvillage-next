@@ -8,7 +8,7 @@ export default function OurServices() {
   return (
     <div className="mt-div text-center">
       <h3 className="text-3xl font-semibold">Our Process</h3>
-      <div className="flex flex-col sm:grid sm:grid-cols-2 2xl:grid-cols-4 2xl:px-9 justify-items-center items-center justify-center">
+      <div className="flex gap-8 text-bg-color-light">
         <OurServicesCards
           image={<LiaFileInvoiceDollarSolid />}
           content="Bring Your Vision to Life: Request a free, detailed quote today!"

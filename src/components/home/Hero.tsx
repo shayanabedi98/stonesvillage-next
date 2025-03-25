@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import Container from "../universal/Container";
 
 export default function Hero() {
   const bgArr = [
@@ -14,53 +14,58 @@ export default function Hero() {
   ];
 
   const [bgIndex, setBgIndex] = useState(0);
-  // State to manage the opacity
-  const [opacity, setOpacity] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Start fading out the image before changing it
-      setOpacity(0);
-      // Use a timeout to change the image after it has faded out
       setTimeout(() => {
         setBgIndex((prevIndex) => (prevIndex + 1) % bgArr.length);
-        // Fade in the new image
-        setOpacity(1);
-      }, 1500); // Adjust this value to match your fade transition duration
+      }, 1000);
     }, 6000);
     return () => clearInterval(interval);
   }, [bgArr.length]);
 
   return (
-    <div className=" overflow-hidden h-[720px] sm:h-[900px] 2xl:h-[980px] shadow-2xl">
-      <AnimatePresence>
-        <motion.div
-          key={bgIndex}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: opacity }}
-          transition={{ duration: 1.5 }}
-          className="absolute inset-0 h-[720px] sm:h-[900px] 2xl:h-[980px] w-full z-[-1] bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url(${bgArr[bgIndex]})`,
-            // backgroundSize: "cover",
-          }}
-        >
-          {/* <Image priority src={bgArr[bgIndex]} layout="fill" objectFit="cover" alt="" className="transform "/> */}
-        </motion.div>
-      </AnimatePresence>
-      <div className="bg-black bg-opacity-20 flex flex-col items-center gap-16 justify-center text-center text-white font-semibold h-[720px] sm:h-[900px] 2xl:h-[980px]">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
-          Supply, Design, Fabricate, Install
-        </h1>
-        <h2 className="text-2xl sm:text-3xl 2xl:text-4xl max-w-[80%]">
-          Elevate Your Space with Stones Village
-        </h2>
-        <Link
-          href="/inventory"
-          className="bg-[#d3b443] hover:bg-bg-color-dark transition duration-200 ease-in-out py-4 px-7 lg:px-8 lg:py-6 text-lg lg:text-xl rounded-md shadow-xl"
-        >
-          <button>View Inventory</button>
-        </Link>
+    <div
+      className="overflow-hidden relative"
+      style={{ height: "calc(100vh - 96px)" }}
+    >
+      <div
+        className="absolute inset-0 w-full h-full z-[-1] duration-1000 transition"
+        style={{ transform: `translateX(-${bgIndex * 100}%)` }}
+      >
+        {bgArr.map((src, index) => (
+          <Image
+            key={index}
+            src={src}
+            alt={`Background ${index}`}
+            layout="fill"
+            objectFit="cover"
+            className={``}
+          />
+        ))}
+      </div>
+
+      <div className="bg-black bg-opacity-20 w-full h-full flex items-center justify-center">
+        <Container>
+          <div
+            className={`flex relative -top-10 flex-col items-center gap-16 justify-center text-center text-white font-semibold h-full w-full transition duration-300 ${
+              bgIndex === 0 || bgIndex === 2 ? "text-black" : ""
+            }`}
+          >
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl">
+              Welcome to Stones Village
+            </h1>
+            <h2 className="text-2xl 2xl:text-3xl max-w-[80%]">
+              Supply &bull; Design &bull; Fabricate &bull; Install
+            </h2>
+            <Link
+              href="/inventory"
+              className="bg-neutral-900 text-bg-color-light py-4 px-6 rounded-full text-lg lg:hover:bg-neutral-800 transition"
+            >
+              <button>View Inventory</button>
+            </Link>
+          </div>
+        </Container>
       </div>
     </div>
   );
