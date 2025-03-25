@@ -126,11 +126,11 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
                     }`}
                   >
                     <p className={``}>
-                      Height: {post.height}&prime;&prime; {post.heightFraction}
+                      Height: {post.height}&prime;&prime; {post.heightFraction !== "--" ? post.heightFraction : ""}
                     </p>
                     <p className={``}>
                       Width: {post.width}
-                      &prime;&prime; {post.widthFraction}
+                      &prime;&prime; {post.widthFraction !== "--" ? post.widthFraction : ""}
                     </p>
                   </div>
                   {path === "/admin" && <EditProduct product={post} />}
