@@ -14,8 +14,10 @@ export default async function SignInPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-lvh">
-      <h1 className="text-3xl font-semibold mb-10">Sign in as Admin</h1>
-      <SignInButton />
+      <div className="flex flex-col items-center gap-4 relative -top-32">
+        <h1 className="text-3xl font-semibold">Sign in as Admin</h1>
+        <SignInButton />
+      </div>
     </div>
   );
 }
