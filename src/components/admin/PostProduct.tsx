@@ -31,7 +31,7 @@ const stoneTypes = [
   "Dekton",
 ];
 
-const fractionalInches = [
+export const fractionalInches = [
   "--",
   "1/2",
   "1/4",
@@ -238,6 +238,8 @@ export default function PostProduct() {
                     required
                     type="number"
                     step={1}
+                    min={1}
+                    max={300}
                     name="height"
                     value={formData.height}
                     onChange={(e) =>
@@ -282,6 +284,8 @@ export default function PostProduct() {
                     required
                     type="number"
                     step={1}
+                    min={1}
+                    max={300}
                     name="width"
                     value={formData.width}
                     onChange={(e) =>
