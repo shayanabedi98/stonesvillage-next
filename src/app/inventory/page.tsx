@@ -6,6 +6,7 @@ import { getUserSession } from "@/components/utils/getUserSession";
 import { redirect } from "next/navigation";
 import { prisma } from "../../../lib/prisma";
 import Container from "@/components/universal/Container";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Stones Village | Inventory",
@@ -39,8 +40,8 @@ export default async function InventoryPage() {
       <Hero content="Inventory" />
       <Container>
         <div className="flex flex-col items-center text-bg-color-dark mt-content">
-          <div className="flex flex-col-reverse xl:flex-row justify-center items-center gap-10 leading-loose mb-20">
-            <div className="flex flex-col xl:w-full">
+          <div className="flex flex-col-reverse gap-8 lg:gap-4 lg:flex-row justify-center items-center leading-loose">
+            <div className="flex flex-col w-full">
               <h2 className="text-2xl max-xl:text-center mb-content font-semibold">
                 Explore Nature&apos;s Masterpieces: Our Premium Stone Collection
               </h2>
@@ -56,16 +57,27 @@ export default async function InventoryPage() {
                 poised to meet your design desires.
               </p>
             </div>
-            <div
-              className="h-72 w-72 lg:h-96 lg:w-96 shadow-md"
-              style={{
-                backgroundImage: "url(/assets/other/inventory.webp)",
-                backgroundSize: "700px",
-                backgroundPosition: "-40px -90px",
-              }}
-            ></div>
+            <div className="w-full justify-center lg:justify-end flex relative overflow-hidden">
+              <Image
+                src="/assets/other/inventory.webp"
+                alt="Stone inventory showcase"
+                width={500}
+                height={500}
+                className="object-cover w-[500px] h-[500px]"
+              />
+            </div>
           </div>
-          <InventoryList posts={posts} />
+          <div>
+            <h3 className="text-center font-semibold text-3xl mt-div">
+              Our Collection
+            </h3>
+            <p className="mt-1">
+              View our extensive inventory and find the perfect stone for you.
+            </p>
+          </div>
+          <div className="my-content w-full">
+            <InventoryList posts={posts} />
+          </div>
         </div>
       </Container>
     </div>

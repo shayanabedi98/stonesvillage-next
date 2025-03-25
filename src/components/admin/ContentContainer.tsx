@@ -15,7 +15,7 @@ export default function ContentContainer({ posts, galleryPosts }: Props) {
 
   return (
     <div className="flex flex-col gap-4 w-full">
-      <div className="flex gap-10 w-full justify-center">
+      <div className="flex gap-10 w-full justify-center mb-10">
         <div
           className={`w-40 border-b-2 px-4 py-2 flex justify-center transition ${
             shownPage === "inventory"

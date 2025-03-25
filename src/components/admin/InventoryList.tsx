@@ -60,7 +60,7 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
   const hasResults = Object.keys(groupedResults).length > 0;
 
   return (
-    <div className="flex flex-col w-full gap-4 mt-10">
+    <div className="flex flex-col w-full gap-4">
       <div
         className={`flex gap-4 items-center ${
           path == "/admin" ? "justify-center" : ""
@@ -69,7 +69,7 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
         <div className="flex relative">
           <CiSearch className="absolute left-1 top-2 text-bg-color-dark text-xl" />
           <input
-            className="py-1 h-9 outline-none placeholder:text-neutral-600 text-sm pl-8 pr-4 w-96 border-2 text-bg-color-dark bg-bg-color-light border-neutral-600 rounded-md bg-"
+            className="py-1 h-9 outline-none placeholder:text-neutral-600 text-sm pl-8 pr-4 w-full sm:w-96 border-2 text-bg-color-dark bg-bg-color-light border-neutral-600 rounded-md bg-"
             type="text"
             value={filter.search}
             autoComplete="off"

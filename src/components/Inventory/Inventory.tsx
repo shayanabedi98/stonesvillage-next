@@ -86,7 +86,7 @@ export default function Inventory() {
           {filter.onyx && "Onyx"}
           {filter.porcelain && "Porcelain"}
           {filter.marble && "Marble"}
-        </span>{" "}
+        </span>
         stone slabs currently in stock.
       </p>
       {/* <Filter content="Quartz" value="quartz" handleFilter={handleFilter} /> */}

@@ -7,8 +7,11 @@ import { IoHammerOutline } from "react-icons/io5";
 export default function OurServices() {
   return (
     <div className="mt-div text-center">
-      <h3 className="text-3xl font-semibold">Our Process</h3>
-      <div className="flex gap-8 text-bg-color-light">
+      <h3 className="text-center font-semibold text-3xl">Our Process</h3>
+      <p className="mt-1">
+        Discover our process, from quotes to installations.
+      </p>
+      <div className="mt-content flex gap-4 sm:gap-8 text-bg-color-light max-xl:grid max-xl:grid-cols-2 max-xl:place-items-center max-sm:grid-cols-1">
         <OurServicesCards
           image={<LiaFileInvoiceDollarSolid />}
           content="Bring Your Vision to Life: Request a free, detailed quote today!"
