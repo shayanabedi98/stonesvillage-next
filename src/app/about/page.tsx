@@ -24,7 +24,7 @@ export default function AboutUs() {
           height={900}
         />
       </div>
-      <div className="px-6 sm:px-16 lg:px-32 xl:px-44 flex flex-col items-center bg-bg-color-dark max-xl:text-center ">
+      <div className="px-6 sm:px-16 text-bg-color-light lg:px-32 xl:px-44 flex flex-col items-center bg-bg-color-dark max-xl:text-center ">
         <div className="mt-content xl:mt-div flex flex-col-reverse xl:flex-row justify-center items-center gap-10 leading-loose">
           <div className="flex flex-col xl:w-1/2">
             <h2 className="text-accent-color text-2xl mb-6 font-semibold">

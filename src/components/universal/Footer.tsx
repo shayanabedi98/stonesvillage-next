@@ -4,7 +4,7 @@ import FooterItems from "./FooterItems";
 
 export default function Footer() {
   return (
-    <div className="flex flex-col gap-6 bg-[rgba(20,20,20,1)] py-10">
+    <div className="flex flex-col gap-6 bg-bg-color-dark text-bg-color-light py-10">
       <div className="flex flex-col items-center justify-center gap-4">
         <Image
           className="w-10"
@@ -40,8 +40,15 @@ export default function Footer() {
       </div>
       <div className="flex justify-center text-[10px]">
         <p>
-          Copyright © {new Date().getFullYear()} <Link className="font-semibold" href='https://pantheras.ca' target="_blank">Pantheras Digital Marketing</Link>,{" "}
-          <span className="text-accent-color">Stones Village Inc.</span>
+          Copyright © {new Date().getFullYear()}{" "}
+          <Link
+            className="font-semibold"
+            href="https://pantheras.ca"
+            target="_blank"
+          >
+            Pantheras Digital Marketing
+          </Link>
+          , <span className="text-accent-color">Stones Village Inc.</span>
         </p>
       </div>
     </div>

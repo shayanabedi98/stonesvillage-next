@@ -3,7 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/universal/Navbar";
 import Footer from "@/components/universal/Footer";
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleTagManager } from "@next/third-parties/google";
+import { NextAuthProvider } from "@/components/universal/Providers";
+import { Toaster } from "react-hot-toast";
+import { WatchForChangesProvider } from "@/context/WatchForChanges";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +25,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
-        {children}
-        <Footer />
+      <body className={`${inter.className}`}>
+        <NextAuthProvider>
+          <WatchForChangesProvider>
+            <div className="flex flex-col min-h-lvh">
+              <Navbar />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+            <Toaster />
+          </WatchForChangesProvider>
+        </NextAuthProvider>
       </body>
       <GoogleTagManager gtmId="AW-11399823022" />
     </html>

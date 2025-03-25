@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Hero({ content }: { content: string }) {
   return (
     <div>
-      <div className="h-[550px] lg:h-[600px] relative">
+      <div className="text-bg-color-light h-lvh sm:h-[500px] relative">
         <Image
           priority
           className="w-full h-full object-cover"
@@ -13,7 +13,9 @@ export default function Hero({ content }: { content: string }) {
           width={1300}
         />
         <div className="absolute w-full h-full top-0 flex items-center justify-center bg-[rgba(0,0,0,0.75)]">
-          <h1 className="font-semibold text-4xl lg:text-7xl">{content}</h1>
+          <h1 className="relative -top-20 font-semibold text-4xl lg:text-7xl">
+            {content}
+          </h1>
         </div>
       </div>
     </div>
