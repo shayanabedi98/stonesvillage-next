@@ -72,7 +72,10 @@ export default function EditProduct({ product }: { product?: Posts }) {
       "Are you sure you want to delete this product?"
     );
 
-    if (!confirmDelete) return;
+    if (!confirmDelete) {
+      setIsLoading(false);
+      return;
+    }
 
     try {
       const imageFormData = new FormData();
