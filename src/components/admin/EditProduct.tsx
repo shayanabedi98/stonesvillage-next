@@ -142,7 +142,7 @@ export default function EditProduct({ product }: { product?: Posts }) {
 
   return (
     <>
-      <div className="transition lg:group-hover:opacity-100 lg:opacity-0 absolute bottom-0 bg-bg-color-light py-1 px-2 rounded-t-md flex gap-3 p-2">
+      <div className="transition lg:group-hover:opacity-100 lg:opacity-0 absolute bottom-0 bg-bg-color-light py-1 px-2 rounded-t-md flex gap-5 p-2">
         <button disabled={isLoading} onClick={() => setShowModal(true)}>
           <MdEdit className="text-bg-color-dark text-xl" />
         </button>

@@ -63,10 +63,12 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
     <div className="flex flex-col w-full gap-4">
       <div
         className={`flex gap-4 items-center ${
-          path == "/admin" ? "justify-center" : ""
+          path == "/admin"
+            ? "justify-center max-sm:flex-col"
+            : "max-xl:justify-center"
         }`}
       >
-        <div className="flex relative">
+        <div className="flex relative max-sm:w-full">
           <CiSearch className="absolute left-1 top-2 text-bg-color-dark text-xl" />
           <input
             className="py-1 h-9 outline-none placeholder:text-neutral-600 text-sm pl-8 pr-4 w-full sm:w-96 border-2 text-bg-color-dark bg-bg-color-light border-neutral-600 rounded-md bg-"
@@ -86,14 +88,18 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
       ) : (
         Object.entries(groupedResults).map(([stoneType, posts]) => (
           <div key={stoneType} className="mb-4 mt-8">
-            <h2 className={`text-2xl font-semibold mb-4 ${path == "/admin" ? "text-center" : ""}`}>
+            <h2
+              className={`text-2xl font-semibold mb-8 ${
+                path == "/admin" ? "text-center" : "text-center"
+              }`}
+            >
               {stoneType}
             </h2>
-            <div className="flex flex-wrap gap-10 justify-between">
+            <div className="grid grid-cols-3 max-xl:grid-cols-2 place-items-center max-[850px]:grid-cols-1 lg:gap-x-16 lg:gap-y-16 gap-x-10 gap-y-10">
               {posts.map((post: Posts) => (
                 <div
                   key={post.id}
-                  className="flex relative duration-200 w-96 h-96 justify-center items-center group"
+                  className="flex relative duration-200 max-[440px]:w-72 max-[440px]:h-72 w-96 h-96 justify-center items-center group"
                 >
                   <Link
                     href={process.env.NEXT_PUBLIC_CDN_URL! + post.image}
@@ -109,7 +115,9 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
                     height={500}
                     className="w-full h-full object-cover rounded-md"
                   />
-                  <p className={`shadow-lg absolute text-sm text-bg-color-dark flex items-center justify-center ${path =="/admin" ? "bg-bg-color-light top-0 left-0 w-32 rounded-br-md px-2 py-1" : "-bottom-6"}`}>
+                  <p
+                    className={`absolute flex items-center justify-center bg-bg-color-dark text-sm shadow-lg text-bg-color-light top-0 w-32 rounded-b-md px-2 py-1`}
+                  >
                     {post.name}
                   </p>
                   {path === "/admin" && <EditProduct product={post} />}

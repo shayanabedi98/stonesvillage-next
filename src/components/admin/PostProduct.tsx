@@ -27,18 +27,17 @@ const stoneTypes = [
   "Dekton",
 ];
 
-export default function PostProduct( {
-}) {
+export default function PostProduct({}) {
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     image: null,
-    name:  "",
+    name: "",
     stoneType: stoneTypes[0],
     color: stoneColors[0],
     description: "",
   });
-  const {setProducstChangeCounter} = useWatchForChanges()
+  const { setProducstChangeCounter } = useWatchForChanges();
 
   const handleImageChange = (file: File | null) => {
     setFormData((prev) => ({ ...prev, image: file as string | File | null }));
@@ -97,9 +96,9 @@ export default function PostProduct( {
   };
 
   return (
-    <div>
+    <div className="max-sm:w-full">
       <button
-        className="border flex items-center gap-2 py-1 px-2 rounded-md bg-bg-color-light text-bg-color-dark lg:hover:opacity-85 transition"
+        className="max-sm:w-full bg-bg-color-dark border-2 border-bg-color-dark text-bg-color-light flex items-center gap-2 py-1 px-2 rounded-md lg:hover:opacity-85 transition"
         onClick={() => setShowModal(true)}
       >
         <GoPlus />

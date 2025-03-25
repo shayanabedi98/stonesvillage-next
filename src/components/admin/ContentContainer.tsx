@@ -19,8 +19,8 @@ export default function ContentContainer({ posts, galleryPosts }: Props) {
         <div
           className={`w-40 border-b-2 px-4 py-2 flex justify-center transition ${
             shownPage === "inventory"
-              ? "text-accent-color  border-neutral-500"
-              : " border-neutral-700"
+              ? "text-bg-color-dark border-neutral-700"
+              : "border-transparent"
           }`}
         >
           <button
@@ -31,10 +31,10 @@ export default function ContentContainer({ posts, galleryPosts }: Props) {
           </button>
         </div>
         <div
-          className={`w-40 flex tranition border-neutral-500 justify-center border-b-2 px-4 py-2 ${
+          className={`w-40 border-b-2 flex tranition border-neutral-500 justify-center px-4 py-2 ${
             shownPage === "gallery"
-              ? "text-accent-color  border-neutral-500"
-              : " border-neutral-700"
+              ? "text-bg-color-dark  border-neutral-700"
+              : "border-transparent"
           }`}
         >
           <button
