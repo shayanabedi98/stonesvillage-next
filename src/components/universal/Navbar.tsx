@@ -64,7 +64,7 @@ export default function Navbar() {
               <NavbarItems location="/about" content="About Us" />
               <NavbarItems location="/contact" content="Contact" />
               <div className="h-10 w-[2px] bg-bg-color-light"></div>
-              <div className="hidden lg:flex items-center justify-center gap-4">
+              <div className="hidden relative -top-1 lg:flex items-center justify-center gap-4">
                 <Link
                   target="_blank"
                   href="https://www.instagram.com/stonesvillage/"
