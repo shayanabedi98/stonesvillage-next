@@ -39,6 +39,10 @@ export default function PostProduct({}) {
   });
   const { setProducstChangeCounter } = useWatchForChanges();
 
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
+
   const handleImageChange = (file: File | null) => {
     setFormData((prev) => ({ ...prev, image: file as string | File | null }));
   };
