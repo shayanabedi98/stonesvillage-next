@@ -17,23 +17,18 @@ export const metadata: Metadata = {
 };
 
 export default async function InventoryPage() {
-  const session = await getUserSession();
 
-  if (!session) {
-    redirect("/sign-in");
-  }
-
-  const posts = await prisma.post.findMany({
-    orderBy: [
-      { stoneType: "asc" },
-      {
-        name: "asc",
-      },
-      {
-        color: "asc",
-      },
-    ],
-  });
+  // const posts = await prisma.post.findMany({
+  //   orderBy: [
+  //     { stoneType: "asc" },
+  //     {
+  //       name: "asc",
+  //     },
+  //     {
+  //       color: "asc",
+  //     },
+  //   ],
+  // });
 
   return (
     <div className="bg-bg-color-light">
