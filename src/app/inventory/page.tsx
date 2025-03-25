@@ -67,16 +67,17 @@ export default async function InventoryPage() {
               />
             </div>
           </div>
-          <div>
+          {/* <div>
             <h3 className="text-center font-semibold text-3xl mt-div">
               Our Collection
             </h3>
             <p className="mt-1">
               View our extensive inventory and find the perfect stone for you.
             </p>
-          </div>
+          </div> */}
           <div className="my-content w-full">
-            <InventoryList posts={posts} />
+            {/* <InventoryList posts={posts} /> */}
+            <Inventory />
           </div>
         </div>
       </Container>

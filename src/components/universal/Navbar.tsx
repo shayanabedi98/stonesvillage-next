@@ -69,10 +69,10 @@ export default function Navbar() {
                   target="_blank"
                   href="https://www.instagram.com/stonesvillage/"
                 >
-                  <FaInstagram className="text-3xl hover:text-accent-color transition duration-200 ease-in-out" />
+                  <FaInstagram className="text-2xl hover:text-accent-color transition duration-200 ease-in-out" />
                 </Link>
                 <Link href="/contact/#mail">
-                  <MdMailOutline className="text-3xl hover:text-accent-color transition duration-200 ease-in-out" />
+                  <MdMailOutline className="text-2xl hover:text-accent-color transition duration-200 ease-in-out" />
                 </Link>
               </div>
             </div>

@@ -48,7 +48,8 @@ export default function ContentContainer({ posts, galleryPosts }: Props) {
       {shownPage === "inventory" ? (
         <InventoryList posts={posts} />
       ) : (
-        <GalleryList />
+        // <GalleryList />
+        <p>coming soon...</p>
       )}
     </div>
   );

@@ -90,7 +90,7 @@ export default function ImageUploader({
           alt=""
           width={400}
           height={400}
-          className="border-2 h-80 w-80 object-cover rounded-md"
+          className="border-2 h-72 w-72 sm:h-80 sm:w-80 object-cover rounded-md"
         />
         {!image && (
           <label className="flex cursor-pointer flex-col items-center justify-center rounded-lg">
