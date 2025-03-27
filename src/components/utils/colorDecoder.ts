@@ -1,15 +1,15 @@
 export const stoneColors: string[] = [
-  "black",
-  "gray",
-  "white",
-  "red",
-  "blue",
-  "green",
-  "yellow",
-  "beige",
-  "orange",
-  "pink",
-  "brown",
+  "Black",
+  "Gray",
+  "White",
+  "Red",
+  "Blue",
+  "Green",
+  "Yellow",
+  "Beige",
+  "Orange",
+  "Pink",
+  "Brown",
 ];
 
 export function colorDecoder(color: string) {

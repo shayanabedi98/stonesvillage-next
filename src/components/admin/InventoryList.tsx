@@ -15,6 +15,7 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
   const [inventory, setInventory] = useState<Posts[]>(posts);
   const [filter, setFilter] = useState({
     search: "",
+    stoneType: "all", // Add this line
   });
   const path = usePathname();
   const { productsChangeCounter } = useWatchForChanges();
@@ -23,10 +24,13 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
   const groupedInventory = () => {
     const filteredInventory = inventory.filter((post) => {
       const searchTerm = filter.search.toLowerCase();
-      return (
+      const matchesSearch =
         post.name.toLowerCase().includes(searchTerm) ||
-        post.stoneType.toLowerCase().includes(searchTerm)
-      );
+        post.stoneType.toLowerCase().includes(searchTerm);
+      const matchesStoneType =
+        filter.stoneType === "all" || post.stoneType === filter.stoneType;
+
+      return matchesSearch && matchesStoneType;
     });
 
     return filteredInventory.reduce(
@@ -38,6 +42,11 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
       },
       {}
     );
+  };
+
+  // Add this helper function to get unique stone types
+  const getUniqueStoneTypes = () => {
+    return Array.from(new Set(inventory.map((post) => post.stoneType))).sort();
   };
 
   const handleChange = (name: string, value: string) => {
@@ -67,17 +76,32 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
           path == "/admin" ? " max-sm:flex-col" : ""
         }`}
       >
-        <div className="flex relative max-sm:w-full">
-          <CiSearch className="absolute left-1 top-2 text-bg-color-dark text-xl" />
-          <input
-            className="py-1 h-9 outline-none placeholder:text-neutral-600 text-sm pl-8 pr-4 w-full sm:w-96 border-2 text-bg-color-dark bg-bg-color-light border-neutral-600 rounded-md bg-"
-            type="text"
-            value={filter.search}
-            autoComplete="off"
-            placeholder="Search"
-            name="search"
+        <div className="flex gap-4 items-center max-sm:flex-col max-sm:w-full">
+          <div className="flex relative max-sm:w-full">
+            <CiSearch className="absolute left-1 top-2 text-bg-color-dark text-xl" />
+            <input
+              className="py-1 h-9 outline-none placeholder:text-neutral-600 text-sm pl-8 pr-4 w-full sm:w-64 md:w-96 border-2 text-bg-color-dark bg-bg-color-light border-neutral-600 rounded-md"
+              type="text"
+              value={filter.search}
+              autoComplete="off"
+              placeholder="Search"
+              name="search"
+              onChange={(e) => handleChange(e.target.name, e.target.value)}
+            />
+          </div>
+          <select
+            className="py-1 h-9 outline-none text-sm px-2 border-2 text-bg-color-dark bg-bg-color-light border-neutral-600 rounded-md max-sm:w-full"
+            value={filter.stoneType}
+            name="stoneType"
             onChange={(e) => handleChange(e.target.name, e.target.value)}
-          />
+          >
+            <option value="all">All Stone Types</option>
+            {getUniqueStoneTypes().map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
         </div>
         {path == "/admin" && <PostProduct />}
       </div>
@@ -113,11 +137,15 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
                   <div
                     className={`w-32 h-7 group-hover:h-16 transition-all duration-300 absolute flex flex-col items-center justify-start bg-bg-color-dark text-sm shadow-lg text-bg-color-light top-0 rounded-b-md px-2`}
                   >
-                    <span className="font-medium relative top-1">{post.name}</span>
+                    <span className="font-medium relative top-1">
+                      {post.name}
+                    </span>
                     <div className="h-0 group-hover:h-auto overflow-hidden group-hover:mt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 text-xs">
                       <p>
                         Height: {post.height}&prime;&prime;{" "}
-                        {post.heightFraction !== "--" ? post.heightFraction : ""}
+                        {post.heightFraction !== "--"
+                          ? post.heightFraction
+                          : ""}
                       </p>
                       <p>
                         Width: {post.width}&prime;&prime;{" "}
@@ -125,21 +153,6 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
                       </p>
                     </div>
                   </div>
-                  {/* <div
-                    className={`text-xs opacity-0 group-hover:opacity-100 transition absolute flex items-center flex-col justify-center backdrop-blur-[5px] backdrop-brightness-50 text-bg-color-light bottom-0 min-w-32  px-2 py-1 ${
-                      path == "/admin" ? "left-0 rounded-tr-md" : "rounded-t-md"
-                    }`}
-                  >
-                    <p className={``}>
-                      Height: {post.height}&prime;&prime;{" "}
-                      {post.heightFraction !== "--" ? post.heightFraction : ""}
-                    </p>
-                    <p className={``}>
-                      Width: {post.width}
-                      &prime;&prime;{" "}
-                      {post.widthFraction !== "--" ? post.widthFraction : ""}
-                    </p>
-                  </div> */}
                   {path === "/admin" && <EditProduct product={post} />}
                 </div>
               ))}
