@@ -81,11 +81,7 @@ export default function PostProduct() {
     width: 0,
   });
   const { setProducstChangeCounter } = useWatchForChanges();
-
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
-
+  
   const handleImageChange = (file: File | null) => {
     setFormData((prev) => ({ ...prev, image: file as string | File | null }));
   };
@@ -224,7 +220,7 @@ export default function PostProduct() {
                 </select>
               </div>
             </div>
-            <div className="flex gap-2 w-full">
+            <div className="flex gap-2 max-sm:flex-col w-full">
               <div className="flex gap-2 w-full">
                 <div className="flex flex-col gap-1 w-full">
                   <label

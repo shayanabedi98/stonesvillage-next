@@ -64,9 +64,7 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
     <div className="flex flex-col w-full gap-4">
       <div
         className={`flex gap-4 justify-center items-center ${
-          path == "/admin"
-            ? " max-sm:flex-col"
-            : ""
+          path == "/admin" ? " max-sm:flex-col" : ""
         }`}
       >
         <div className="flex relative max-sm:w-full">
@@ -89,9 +87,7 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
       ) : (
         Object.entries(groupedResults).map(([stoneType, posts]) => (
           <div key={stoneType} className="mb-4 mt-8">
-            <h2
-              className={`text-2xl text-center font-semibold mb-8`}
-            >
+            <h2 className={`text-2xl text-center font-semibold mb-8`}>
               {stoneType}
             </h2>
             <div className="grid grid-cols-3 max-xl:grid-cols-2 place-items-center max-[850px]:grid-cols-1 lg:gap-x-16 lg:gap-y-16 gap-x-10 gap-y-10">
@@ -103,10 +99,9 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
                   <Link
                     href={process.env.NEXT_PUBLIC_CDN_URL! + post.image}
                     target="_blank"
-                    className="backdrop-blur-[1px] flex gap-1 items-center text-bg-color-light justify-center rounded-md absolute h-9 w-20 transition backdrop-brightness-[50%] opacity-0 group-hover:opacity-100"
+                    className="backdrop-blur-[1px] flex gap-1 items-center text-bg-color-light justify-center rounded-md absolute h-9 w-12 transition backdrop-brightness-[50%] opacity-0 group-hover:opacity-100"
                   >
                     <FaEye />
-                    View
                   </Link>
                   <Image
                     src={process.env.NEXT_PUBLIC_CDN_URL! + post.image}
@@ -115,24 +110,36 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
                     height={500}
                     className="w-full h-full object-cover rounded-md"
                   />
-                  <p
-                    className={`absolute flex items-center justify-center bg-bg-color-dark text-sm shadow-lg text-bg-color-light top-0 w-32 rounded-b-md px-2 py-1`}
-                  >
-                    {post.name}
-                  </p>
                   <div
+                    className={`w-32 h-7 group-hover:h-16 transition-all duration-300 absolute flex flex-col items-center justify-start bg-bg-color-dark text-sm shadow-lg text-bg-color-light top-0 rounded-b-md px-2`}
+                  >
+                    <span className="font-medium relative top-1">{post.name}</span>
+                    <div className="h-0 group-hover:h-auto overflow-hidden group-hover:mt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 text-xs">
+                      <p>
+                        Height: {post.height}&prime;&prime;{" "}
+                        {post.heightFraction !== "--" ? post.heightFraction : ""}
+                      </p>
+                      <p>
+                        Width: {post.width}&prime;&prime;{" "}
+                        {post.widthFraction !== "--" ? post.widthFraction : ""}
+                      </p>
+                    </div>
+                  </div>
+                  {/* <div
                     className={`text-xs opacity-0 group-hover:opacity-100 transition absolute flex items-center flex-col justify-center backdrop-blur-[5px] backdrop-brightness-50 text-bg-color-light bottom-0 min-w-32  px-2 py-1 ${
                       path == "/admin" ? "left-0 rounded-tr-md" : "rounded-t-md"
                     }`}
                   >
                     <p className={``}>
-                      Height: {post.height}&prime;&prime; {post.heightFraction !== "--" ? post.heightFraction : ""}
+                      Height: {post.height}&prime;&prime;{" "}
+                      {post.heightFraction !== "--" ? post.heightFraction : ""}
                     </p>
                     <p className={``}>
                       Width: {post.width}
-                      &prime;&prime; {post.widthFraction !== "--" ? post.widthFraction : ""}
+                      &prime;&prime;{" "}
+                      {post.widthFraction !== "--" ? post.widthFraction : ""}
                     </p>
-                  </div>
+                  </div> */}
                   {path === "/admin" && <EditProduct product={post} />}
                 </div>
               ))}
