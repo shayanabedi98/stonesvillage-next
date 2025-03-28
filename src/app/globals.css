@@ -54,3 +54,13 @@ textarea {
     background-position: -130px;
   }
 }
+
+@media (max-height: 800px) {
+  .modal {
+    @apply max-h-[450px];
+  }
+
+  .cropper {
+    @apply max-h-[400px];
+  }
+}

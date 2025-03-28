@@ -23,7 +23,7 @@ export default function CropperModal({
       <div
         style={{ minWidth: minWidth ?? "400px" }}
         ref={modalRef}
-        className="flex relative max-h-[80vh] min-w-[700px] max-w-[900px] flex-col gap-8 overflow-auto rounded-md bg-neutral-800 px-6 py-6"
+        className="cropper flex relative max-h-[80vh] min-w-[700px] max-w-[900px] flex-col gap-8 overflow-auto rounded-md bg-neutral-800 px-6 py-6"
       >
         <button onClick={closeModal}>
           <IoClose className="absolute top-1 right-1 lg:hover:bg-neutral-700 rounded-full transition text-4xl p-1" />
