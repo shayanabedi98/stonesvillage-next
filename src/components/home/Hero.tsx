@@ -54,6 +54,8 @@ export default function Hero() {
               alt={`Background ${index}`}
               height={1080}
               width={1920}
+              quality={100}
+              priority
               className="object-cover object-bottom h-full w-full"
             />
           </div>

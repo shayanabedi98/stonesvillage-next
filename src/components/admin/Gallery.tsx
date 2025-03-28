@@ -66,6 +66,8 @@ export default function Gallery({
                 alt={`${g.description}`}
                 width={500}
                 height={500}
+                quality={100}
+                priority
                 className="w-full h-full object-cover rounded-md"
               />
               {path === "/admin" && <EditGallery galleryPost={g} />}
