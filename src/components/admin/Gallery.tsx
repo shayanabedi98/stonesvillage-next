@@ -16,20 +16,8 @@ export default function Gallery({
   galleryPosts: GalleryPosts[];
 }) {
   const [gallery, setGallery] = useState<GalleryPosts[]>(galleryPosts);
-  //   const [filter, setFilter] = useState({
-  //     search: "",
-  //   });
   const path = usePathname();
   const { galleryChangeCounter } = useWatchForChanges();
-
-  // Add this function to group posts by stone type
-
-  //   const handleChange = (name: string, value: string) => {
-  //     setFilter((prev) => ({
-  //       ...prev,
-  //       [name]: value,
-  //     }));
-  //   };
 
   useEffect(() => {
     const fetchData = async () => {
