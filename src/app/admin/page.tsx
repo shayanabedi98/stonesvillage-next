@@ -22,6 +22,7 @@ export type Posts = {
 export type GalleryPosts = {
   id: string;
   description: string | null;
+  title: string | null;
   image: string | null;
   createdAt: Date;
 };

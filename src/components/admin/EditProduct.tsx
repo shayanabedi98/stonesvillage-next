@@ -350,7 +350,7 @@ export default function EditProduct({ product }: { product?: Posts }) {
               disabled={isLoading}
               type="submit"
             >
-              Create
+              Edit
             </button>
           </form>
         </ModalContainer>

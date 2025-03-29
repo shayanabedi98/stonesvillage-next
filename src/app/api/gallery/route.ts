@@ -42,6 +42,7 @@ export async function POST(req: Request) {
     const postGallery = await prisma.galleryPost.create({
       data: {
         description: formData.description,
+        title: formData.title,
       },
     });
 
@@ -68,6 +69,7 @@ export async function PATCH(req: Request) {
       where: { id },
       data: {
         description: formData.description || null,
+        title: formData.title || null,
       },
     });
 

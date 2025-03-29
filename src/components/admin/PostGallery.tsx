@@ -9,6 +9,7 @@ import { useWatchForChanges } from "@/context/WatchForChanges";
 
 type FormData = {
   image: string | File | null;
+  title: string | null;
   description: string | null;
 };
 
@@ -17,6 +18,7 @@ export default function PostGallery() {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     image: null,
+    title: "",
     description: "",
   });
   const { setGalleryChangeCounter } = useWatchForChanges();
@@ -36,6 +38,7 @@ export default function PostGallery() {
   const closeModal = () => {
     setFormData({
       image: null,
+      title: "",
       description: "",
     });
     setShowModal(false);
@@ -101,6 +104,20 @@ export default function PostGallery() {
                   : formData?.image
               }
             />
+            <div className="flex-col flex gap-1 w-full">
+              <label htmlFor="name" className="text-sm text-bg-color-light">
+                Title
+              </label>
+              <input
+                required
+                onChange={(e) => handleChange(e.target.name, e.target.value)}
+                type="text"
+                name="title"
+                value={formData.title!}
+                className="w-full h-9 px-2 outline-none text-sm rounded-md"
+                placeholder="Title"
+              />
+            </div>
             <div className="flex-col flex gap-1 w-full">
               <label
                 htmlFor="description"

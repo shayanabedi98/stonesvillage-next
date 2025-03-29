@@ -40,7 +40,7 @@ export default function Gallery({
 
     fetchData();
   }, [galleryChangeCounter]);
-  
+
   return (
     <div className="flex flex-col w-full gap-4">
       <div className="flex justify-center">
@@ -51,7 +51,7 @@ export default function Gallery({
           {gallery.map((g: GalleryPosts) => (
             <div
               key={g.id}
-              className="flex relative duration-200 max-[440px]:w-72 max-[440px]:h-72 w-96 h-96 justify-center items-center group"
+              className="flex flex-col relative duration-200 max-[440px]:w-72 max-[440px]:h-72 w-96 h-96 justify-center items-center group"
             >
               <Link
                 href={process.env.NEXT_PUBLIC_CDN_URL! + g.image}
@@ -71,6 +71,11 @@ export default function Gallery({
                 className="w-full h-full object-cover rounded-md"
               />
               {path === "/admin" && <EditGallery galleryPost={g} />}
+              <div
+                className={`min-w-32 opacity-0 group-hover:opacity-100 py-1 min-h-7 transition-all duration-300 absolute flex flex-col items-center justify-start bg-bg-color-dark text-sm shadow-lg text-bg-color-light top-0 rounded-b-md px-2`}
+              >
+                <span className="font-medium text-center relative top-1">{g.title}</span>
+              </div>
             </div>
           ))}
         </div>
