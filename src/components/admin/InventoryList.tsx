@@ -137,12 +137,12 @@ export default function InventoryList({ posts }: { posts: Posts[] }) {
                     className="w-full h-full object-cover rounded-md"
                   />
                   <div
-                    className={`min-w-32 h-7 group-hover:h-16 max-sm:group-hover:h-20 transition-all duration-300 absolute flex flex-col items-center justify-start bg-bg-color-dark text-sm pb-2 pt-1 shadow-lg text-bg-color-light top-0 rounded-b-md px-2`}
+                    className={`min-w-32 h-7 group-hover:h-16 max-sm:group-hover:h-20 transition-all duration-300 absolute flex flex-col items-center justify-start bg-bg-color-dark text-sm pb-2 shadow-lg text-bg-color-light top-0 rounded-b-md px-2`}
                   >
                     <span className="font-medium relative text-center top-1">
                       {post.name}
                     </span>
-                    <div className="h-0 group-hover:h-auto overflow-hidden group-hover:mt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 text-xs">
+                    <div className="h-0 group-hover:h-auto overflow-hidden mt-1 opacity-0 group-hover:opacity-100 transition-all duration-300 text-xs">
                       <p>
                         Height: {post.height}&prime;&prime;{" "}
                         {post.heightFraction !== "--"
