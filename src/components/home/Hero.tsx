@@ -8,9 +8,9 @@ import Container from "../universal/Container";
 export default function Hero() {
   const bgArr = [
     "/assets/other/homebg5.webp",
-    "/assets/other/homebg8.webp",
-    "/assets/other/homebg7.webp",
-    "/assets/other/homebg9.webp",
+    "/assets/other/homebg3.jpg",
+    "/assets/other/homebg2.jpg",
+    "/assets/other/kitchen.jpg",
   ];
 
   const [bgIndex, setBgIndex] = useState(0);
@@ -56,7 +56,7 @@ export default function Hero() {
               width={1920}
               quality={100}
               priority
-              className="object-cover object-bottom h-full w-full"
+              className={`object-cover ${bgIndex === 0 ? "object-bottom" : ""} h-full w-full`}
             />
           </div>
         ))}
@@ -64,9 +64,7 @@ export default function Hero() {
 
       <div
         className={`bg-black transition duration-1000 w-full h-full flex items-center justify-center ${
-          bgIndex === 0 || bgIndex === 2 || bgIndex === 1
-            ? "bg-opacity-35"
-            : "bg-opacity-20"
+          bgIndex === 0 ? "bg-opacity-35" : "bg-opacity-15"
         }`}
       >
         <Container>

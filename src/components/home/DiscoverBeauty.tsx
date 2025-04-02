@@ -13,44 +13,12 @@ export default function Discoverbeauty() {
         <div className="flex justify-center lg:justify-start w-full">
           <Image
             className="w-[500px] h-[500px] object-cover shadow-xl"
-            src="/assets/other/homebg4.webp"
+            src="/assets/other/kitchen.jpg"
             alt=""
             width={700}
             height={700}
           />
         </div>
-        {/* <div className="flex justify-start items-center w-full">
-          <div className="grid grid-cols-2 shadow-2xl gap-2 border-2 p-2">
-            <Image
-              className="object-cover w-40 h-40 xl:w-52 xl:h-52"
-              src="/assets/other/discover1.jpg"
-              alt=""
-              height={200}
-              width={200}
-            />
-            <Image
-              className="object-cover w-40 h-40 xl:w-52 xl:h-52"
-              src="/assets/other/discover2.jpg"
-              alt=""
-              height={200}
-              width={200}
-            />
-            <Image
-              className="object-cover w-40 h-40 xl:w-52 xl:h-52"
-              src="/assets/other/discover3.jpg"
-              alt=""
-              height={200}
-              width={200}
-            />
-            <Image
-              className="object-cover  w-40 h-40 xl:w-52 xl:h-52"
-              src="/assets/other/discover4.jpg"
-              alt=""
-              height={200}
-              width={200}
-            />
-          </div>
-        </div> */}
         <div className="flex flex-col justify-center items-center leading-loose gap-10 w-full">
           <p className="max-lg:text-center">
             Check out our Instagram for a peek at our latest projects and the

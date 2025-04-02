@@ -16,15 +16,6 @@ export default function AboutUs() {
   return (
     <div className="">
       <Hero content="About Us" />
-      {/* <div className="flex py-10 justify-center my-content max-lg:w-[90%] mx-auto">
-        <Image
-          src="/assets/other/sv.png"
-          alt=""
-          className="shadow-2xl rounded-md"
-          width={1000}
-          height={900}
-        />
-      </div> */}
       <div className="px-6 sm:px-16 text-bg-color-dark lg:px-32 xl:px-44 flex flex-col items-center max-xl:text-center ">
         <div className="mt-content xl:mt-div flex flex-col-reverse xl:flex-row justify-center items-center gap-10 leading-loose">
           <div className="flex flex-col xl:w-1/2">
@@ -86,7 +77,7 @@ export default function AboutUs() {
           <div
             className="h-72 w-72 md:h-[500px] md:w-[500px] shadow-md rounded-md"
             style={{
-              backgroundImage: "url(/assets/gallery/item22.jpg)",
+              backgroundImage: "url(/assets/other/kitchen2.jpg)",
               backgroundSize: "700px",
               backgroundPosition: "-180px -20px",
             }}

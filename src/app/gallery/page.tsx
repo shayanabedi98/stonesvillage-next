@@ -43,7 +43,7 @@ export default async function GalleryPage() {
           </div>
           <div className="w-full justify-center lg:justify-start flex relative overflow-hidden">
             <Image
-              src="/assets/gallery/item8.jpg"
+              src="/assets/other/discover2.jpg"
               alt="Stone inventory showcase"
               width={500}
               height={500}
